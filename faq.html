@@ -8,39 +8,44 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header>
   <nav>
-    <a href="index.html" class="logo">Past Forward</a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="nav-links" id="navLinks">
-      <a href="about.html">About</a>
-      <a href="index.html#services">Services</a>
-      <a href="index.html#process">Process</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="faq.html">FAQ</a>
+    <a href="index.html" class="logo"><span class="logo-mark"></span>Past Forward</a>
+    <div class="nav-right">
       <a href="contact.html" class="btn btn-primary">Get a Quote</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navPanel">
+        <span class="burger"><span></span><span></span><span></span></span>
+        <span class="menu-label">MENU</span>
+      </button>
     </div>
   </nav>
-  <div class="nav-backdrop" id="navBackdrop"></div>
 </header>
 
-<div class="mobile-action-bar">
-  <a href="contact.html" class="btn btn-primary" style="width:100%;">Get a Quote</a>
+<div class="nav-backdrop" id="navBackdrop"></div>
+<div class="nav-panel" id="navPanel">
+  <a href="index.html"><span>Home</span><span class="idx">01</span></a>
+  <a href="about.html"><span>About</span><span class="idx">02</span></a>
+  <a href="services.html"><span>Services</span><span class="idx">03</span></a>
+  <a href="process.html"><span>Process</span><span class="idx">04</span></a>
+  <a href="pricing.html"><span>Pricing</span><span class="idx">05</span></a>
+  <a href="faq.html"><span>FAQ</span><span class="idx">06</span></a>
+  <a href="contact.html" class="nav-cta btn">Get a Quote</a>
+  <div class="nav-meta">Indianapolis, IN &middot; indypastforward@gmail.com</div>
 </div>
 
-<section class="block light" id="faq">
+<section class="page-header">
+  <div class="hero-glow"></div>
+  <span class="eyebrow">FAQ</span>
+  <h1>Common questions</h1>
+</section>
+
+<section class="block" id="faq">
   <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow" style="text-align:center;">FAQ</span>
-      <h2>Common questions</h2>
-    </div>
     <div class="faq-list reveal">
       <div class="faq-item open">
         <div class="faq-q">Do I get my original tapes back? <span class="plus">+</span></div>
@@ -67,19 +72,29 @@
 </section>
 
 <section class="final-cta">
+  <div class="hero-glow"></div>
   <div class="wrap">
     <h2 class="reveal">Still have a question?</h2>
     <a href="contact.html" class="btn btn-primary reveal">Get in Touch</a>
   </div>
 </section>
 
-<footer class="light">
+<footer>
   <div class="wrap">
-    <p>&copy; 2026 Past Forward. Indianapolis, IN.</p>
-    <div class="footer-links">
-      <a href="index.html#services">Services</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="contact.html">Contact</a>
+    <div>
+      <div class="footer-brand"><span class="logo-mark"></span>Past Forward</div>
+      <p class="copyright">&copy; 2026 Past Forward. Indianapolis, IN.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Site</div>
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="process.html">Process</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </div>
     </div>
   </div>
 </footer>

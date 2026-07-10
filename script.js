@@ -1,34 +1,39 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// Mobile menu
+/* ---------------- Nav panel ---------------- */
 const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
+const navPanel = document.getElementById('navPanel');
 const navBackdrop = document.getElementById('navBackdrop');
 
 function openMenu(){
-  navLinks.classList.add('open');
+  navPanel.classList.add('open');
   menuToggle.classList.add('open');
   navBackdrop.classList.add('open');
   menuToggle.setAttribute('aria-expanded', 'true');
-  menuToggle.setAttribute('aria-label', 'Close menu');
 }
 function closeMenu(){
-  navLinks.classList.remove('open');
+  navPanel.classList.remove('open');
   menuToggle.classList.remove('open');
   navBackdrop.classList.remove('open');
   menuToggle.setAttribute('aria-expanded', 'false');
-  menuToggle.setAttribute('aria-label', 'Open menu');
 }
-menuToggle.addEventListener('click', () => {
-  navLinks.classList.contains('open') ? closeMenu() : openMenu();
-});
-navBackdrop.addEventListener('click', closeMenu);
-navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeMenu();
+if (menuToggle){
+  menuToggle.addEventListener('click', () => {
+    navPanel.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  navBackdrop.addEventListener('click', closeMenu);
+  navPanel.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+}
+
+// Mark current page link active
+const currentPage = location.pathname.split('/').pop() || 'index.html';
+document.querySelectorAll('.nav-panel a[href]').forEach(a => {
+  const href = a.getAttribute('href').split('#')[0];
+  if (href === currentPage || (href === 'index.html' && currentPage === '')) a.classList.add('active');
 });
 
-// Build the digital dot grid used in the format-pin visual
+/* ---------------- Digital dot grid (format-pin visual) ---------------- */
 const dotGrid = document.getElementById('dotGrid');
 if (dotGrid){
   for (let row = 0; row < 6; row++){
@@ -39,14 +44,14 @@ if (dotGrid){
       c.setAttribute('cx', cx);
       c.setAttribute('cy', cy);
       c.setAttribute('r', 2.5);
-      c.setAttribute('fill', '#0a84ff');
+      c.setAttribute('fill', '#e0a458');
       c.setAttribute('opacity', 0.5);
       dotGrid.appendChild(c);
     }
   }
 }
 
-// Hero parallax fade
+/* ---------------- Hero parallax ---------------- */
 if (document.querySelector(".hero")){
   gsap.to("#heroHeadline", {
     yPercent: -18, opacity: 0.15, ease: "none",
@@ -62,15 +67,15 @@ if (document.querySelector(".hero")){
   });
 }
 
-// Statement scroll-lit lines (pinned on desktop; gentle reveal on mobile so scrolling stays natural)
+/* ---------------- Statement scroll-lit lines ---------------- */
 function litStatementUpdate(self){
   const lines = document.querySelectorAll(".statement .line");
   const seg = 1 / lines.length;
   lines.forEach((line, i) => {
     const p = Math.min(Math.max((self.progress - i * seg) / seg, 0), 1);
     line.style.color = i === lines.length - 1
-      ? `rgba(10,132,255,${0.16 + p * 0.84})`
-      : `rgba(29,29,31,${0.16 + p * 0.84})`;
+      ? `rgba(90,168,255,${0.14 + p * 0.86})`
+      : `rgba(255,255,255,${0.14 + p * 0.86})`;
   });
 }
 if (document.querySelector(".statement")){
@@ -90,7 +95,7 @@ if (document.querySelector(".statement")){
   });
 }
 
-// Format pin section: crossfade icon/text/visual layers as user scrolls
+/* ---------------- Format pin section (Services page) ---------------- */
 if (document.getElementById("services-pin")){
   ScrollTrigger.matchMedia({
     "(min-width: 861px)": function(){
@@ -105,6 +110,12 @@ if (document.getElementById("services-pin")){
         onUpdate(self){ updateFormatState(self.progress); }
       });
     }
+  });
+  document.querySelectorAll('.format-dot').forEach(dot => {
+    dot.addEventListener('click', () => {
+      const idx = Number(dot.dataset.dot);
+      updateFormatState(idx / 3 + 0.05);
+    });
   });
 }
 
@@ -121,11 +132,13 @@ function updateFormatState(progress){
   });
   const waveform = document.getElementById('waveformLayer');
   const grid = document.getElementById('gridLayer');
-  waveform.style.opacity = Math.max(0, 1 - progress * 1.4);
-  grid.style.opacity = Math.min(1, progress * 1.4);
+  if (waveform && grid){
+    waveform.style.opacity = Math.max(0, 1 - progress * 1.4);
+    grid.style.opacity = Math.min(1, progress * 1.4);
+  }
 }
 
-// Stat counters, once on view
+/* ---------------- Stat counters ---------------- */
 document.querySelectorAll('.stat-num').forEach(el => {
   const target = Number(el.dataset.count);
   ScrollTrigger.create({
@@ -140,7 +153,7 @@ document.querySelectorAll('.stat-num').forEach(el => {
   });
 });
 
-// Process line fill, scrubbed
+/* ---------------- Process line fill ---------------- */
 if (document.querySelector(".process-track")){
   gsap.to("#processFill", {
     height: "100%", ease: "none",
@@ -148,7 +161,7 @@ if (document.querySelector(".process-track")){
   });
 }
 
-// Generic fade-up reveals
+/* ---------------- Generic fade-up reveals ---------------- */
 gsap.utils.toArray('.reveal').forEach(el => {
   gsap.to(el, {
     opacity: 1, y: 0, duration: 0.8, ease: "power2.out",
@@ -156,7 +169,7 @@ gsap.utils.toArray('.reveal').forEach(el => {
   });
 });
 
-// FAQ accordion
+/* ---------------- FAQ accordion ---------------- */
 document.querySelectorAll('.faq-item').forEach(item => {
   item.querySelector('.faq-q').addEventListener('click', () => {
     const isOpen = item.classList.contains('open');
@@ -164,3 +177,52 @@ document.querySelectorAll('.faq-item').forEach(item => {
     if (!isOpen) item.classList.add('open');
   });
 });
+
+/* ---------------- Contact form: AJAX submit to Netlify Forms ---------------- */
+const contactForm = document.getElementById('contactForm');
+if (contactForm){
+  const statusEl = document.getElementById('formStatus');
+  const successPanel = document.getElementById('formSuccess');
+
+  function encodeForm(data){
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  }
+
+  contactForm.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    // honeypot check — silently "succeed" for bots without sending
+    const honeypot = contactForm.querySelector('input[name="bot-field"]');
+    if (honeypot && honeypot.value){
+      return;
+    }
+
+    const formData = new FormData(contactForm);
+    const payload = {};
+    formData.forEach((value, key) => { payload[key] = value; });
+
+    contactForm.classList.add('submitting');
+    if (statusEl){ statusEl.className = 'form-status'; statusEl.textContent = ''; }
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encodeForm(payload)
+    })
+      .then(() => {
+        contactForm.classList.add('hidden-form');
+        if (successPanel) successPanel.classList.add('show');
+      })
+      .catch(() => {
+        if (statusEl){
+          statusEl.textContent = "Something went wrong sending that — please email indypastforward@gmail.com directly.";
+          statusEl.className = 'form-status show error';
+        }
+      })
+      .finally(() => {
+        contactForm.classList.remove('submitting');
+      });
+  });
+}
