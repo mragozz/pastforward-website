@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing | Past Forward</title>
+<meta name="description" content="Simple, per-item pricing for VHS, camcorder tape, and DVD digitizing in Indianapolis. No subscriptions, no hidden fees.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo">Past Forward</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="about.html">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#process">Process</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html" class="btn btn-primary">Get a Quote</a>
+    </div>
+  </nav>
+  <div class="nav-backdrop" id="navBackdrop"></div>
+</header>
+
+<div class="mobile-action-bar">
+  <a href="contact.html" class="btn btn-primary" style="width:100%;">Get a Quote</a>
+</div>
+
+<section class="block light" id="pricing">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow" style="text-align:center;">Pricing</span>
+      <h2>Simple, per-item pricing</h2>
+      <p>No subscriptions, no hidden fees.</p>
+    </div>
+    <table class="pricing-table reveal">
+      <thead><tr><th>Format</th><th>Price</th><th>Turnaround</th></tr></thead>
+      <tbody>
+        <tr><td>Any tape (VHS, VHS-C, Hi8, Digital8, MiniDV) &mdash; up to 1 hour</td><td class="price-cell">$18 / tape</td><td>1&ndash;2 weeks</td></tr>
+        <tr><td>Any tape (VHS, VHS-C, Hi8, Digital8, MiniDV) &mdash; over 1 hour</td><td class="price-cell">$20 / tape</td><td>1&ndash;2 weeks</td></tr>
+        <tr><td>DVD</td><td class="price-cell">$13 / disc</td><td>2&ndash;3 weeks</td></tr>
+        <tr><td>Rush service</td><td class="price-cell">+$20 flat</td><td>1&ndash;2 days</td></tr>
+      </tbody>
+    </table>
+    <p class="pricing-note reveal">Tape pricing is based on run time, not format &mdash; $18 for tapes up to 1 hour, $20 for tapes over 1 hour.</p>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="wrap">
+    <h2 class="reveal">Would you like to relive your past?</h2>
+    <a href="contact.html" class="btn btn-primary reveal">Start My Order</a>
+  </div>
+</section>
+
+<footer class="light">
+  <div class="wrap">
+    <p>&copy; 2026 Past Forward. Indianapolis, IN.</p>
+    <div class="footer-links">
+      <a href="index.html#services">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
