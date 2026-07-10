@@ -3,46 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pricing | Past Forward Indianapolis</title>
+<title>Pricing | Past Forward</title>
 <meta name="description" content="Simple, per-item pricing for VHS, camcorder tape, and DVD digitizing in Indianapolis. No subscriptions, no hidden fees.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
 <header>
   <nav>
-    <a class="logo" href="index.html">Past Forward</a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="nav-links" id="navLinks">
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="pricing.html" class="active" aria-current="page">Pricing</a>
-      <a href="faq.html">FAQ</a>
+    <a href="index.html" class="logo"><span class="logo-mark"></span>Past Forward</a>
+    <div class="nav-right">
       <a href="contact.html" class="btn btn-primary">Get a Quote</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navPanel">
+        <span class="burger"><span></span><span></span><span></span></span>
+        <span class="menu-label">MENU</span>
+      </button>
     </div>
   </nav>
-  <div class="nav-backdrop" id="navBackdrop"></div>
 </header>
 
-<div class="mobile-action-bar">
-  <a href="contact.html" class="btn btn-primary" style="width:100%;">Get a Quote</a>
+<div class="nav-backdrop" id="navBackdrop"></div>
+<div class="nav-panel" id="navPanel">
+  <a href="index.html"><span>Home</span><span class="idx">01</span></a>
+  <a href="about.html"><span>About</span><span class="idx">02</span></a>
+  <a href="services.html"><span>Services</span><span class="idx">03</span></a>
+  <a href="process.html"><span>Process</span><span class="idx">04</span></a>
+  <a href="pricing.html"><span>Pricing</span><span class="idx">05</span></a>
+  <a href="faq.html"><span>FAQ</span><span class="idx">06</span></a>
+  <a href="contact.html" class="nav-cta btn">Get a Quote</a>
+  <div class="nav-meta">Indianapolis, IN &middot; indypastforward@gmail.com</div>
 </div>
 
-<section class="page-hero">
+<section class="page-header">
   <div class="hero-glow"></div>
-  <div class="page-hero-inner">
-    <div class="hero-eyebrow">Pricing</div>
-    <h1>Simple, per-item pricing</h1>
-    <p class="lead">No subscriptions, no hidden fees.</p>
-  </div>
+  <span class="eyebrow">Pricing</span>
+  <h1>Simple, per-item pricing</h1>
+  <p>No subscriptions, no hidden fees.</p>
 </section>
 
-
-<section class="block">
+<section class="block" id="pricing">
   <div class="wrap">
     <table class="pricing-table reveal">
       <thead><tr><th>Format</th><th>Price</th><th>Turnaround</th></tr></thead>
@@ -57,29 +60,36 @@
   </div>
 </section>
 
-<section class="final-cta alt">
-  <div class="hero-glow" style="width:600px;height:600px;"></div>
-  <div class="wrap" style="position:relative;">
-    <h2 class="reveal">Ready to get started?</h2>
-    <p class="reveal">Get a free, no-obligation quote in under a minute.</p>
-    <a href="contact.html" class="btn btn-primary reveal">Get a Quote</a>
+<section class="final-cta">
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <h2 class="reveal">Would you like to relive your past?</h2>
+    <a href="contact.html" class="btn btn-primary reveal">Start My Order</a>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <p>&copy; 2026 Past Forward. Indianapolis, IN.</p>
-    <div class="footer-links">
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Contact</a>
+    <div>
+      <div class="footer-brand"><span class="logo-mark"></span>Past Forward</div>
+      <p class="copyright">&copy; 2026 Past Forward. Indianapolis, IN.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Site</div>
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="process.html">Process</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </div>
     </div>
   </div>
 </footer>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="main.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
