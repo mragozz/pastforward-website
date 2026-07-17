@@ -190,12 +190,12 @@ export default function ContactPage() {
             <FadeIn delay={0.45}>
               <p className="text-xl text-foreground/60 leading-relaxed mb-8 max-w-lg">
                 Fill out the form and I'll get back to you within 24 hours to
-                schedule your free, personal pickup anywhere in the Indianapolis area.
+                schedule your free pickup anywhere in the Indianapolis, Carmel, Westfield, Zionsville and Noblesville areas.
               </p>
             </FadeIn>
             <FadeIn delay={0.6}>
               <div className="flex flex-col gap-4 text-base text-foreground/55">
-                <div className="flex items-center gap-3"><span className="text-accent font-bold text-lg">✓</span> Free pickup anywhere in Indianapolis</div>
+                <div className="flex items-center gap-3"><span className="text-accent font-bold text-lg">✓</span> Free pickup anywhere in Indianapolis, Carmel, Westfield, Zionsville and Noblesville areas</div>
                 <div className="flex items-center gap-3"><span className="text-accent font-bold text-lg">✓</span> Response within 24 hours</div>
                 <div className="flex items-center gap-3"><span className="text-accent font-bold text-lg">✓</span> 100% originals returned</div>
               </div>
