@@ -9,7 +9,7 @@ type Form = {
 };
 
 const initialForm: Form = { name: "", email: "", phone: "", address: "", tapeTypes: "", quantity: "", notes: "" };
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwwk4SpBj19Yr1q7OWZLrz1MCACpXrWll5ST50X2yNMzOZbYq4lEhhSIjvlS487q8mK/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwWAafHUL8xiSdebl3WIceF3DBUCfpoxSvfXNTTBAgOGcYSLN-Zj8MpNX4wWFync1Iy/exec";
 
 function Field({
   label, required, children,
