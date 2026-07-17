@@ -9,7 +9,7 @@ const links = [
   { label: "Contact", to: "/contact" },
 ];
 
-const formats = ["VHS", "VHS-C", "Hi8", "8mm Camcorder", "Digital8", "MiniDV", "Betamax", "DVD"];
+const formats = ["VHS", "VHS-C", "Hi8", "8mm Camcorder", "MiniDV", "DVD"];
 
 export default function Footer() {
   return (
