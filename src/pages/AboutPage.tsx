@@ -53,16 +53,15 @@ export default function AboutPage() {
             </div>
             <FadeIn delay={0.4}>
               <p className="text-xl text-foreground/62 leading-relaxed mb-8 max-w-lg">
-                A Computer Science student at Purdue University who started this
-                because he believes no family should lose their memories to a
-                broken VHS deck.
+                A Computer Science and Artificial Intelligence student at Purdue University 
+                who believes in combining technology from the past with technology in the future.
               </p>
             </FadeIn>
             <FadeIn delay={0.55}>
               <div className="flex items-center gap-4 text-sm text-foreground/45 font-semibold">
                 <div className="flex flex-col">
                   <span className="text-foreground font-bold text-lg">Purdue University</span>
-                  <span className="text-muted-foreground">Computer Science · Boilermaker</span>
+                  <span className="text-muted-foreground">Computer Science · Artificial Intelligence</span>
                 </div>
               </div>
             </FadeIn>
@@ -89,8 +88,8 @@ export default function AboutPage() {
                 transition={{ duration: 0.6, delay: 0.6, type: "spring" }}
                 className="absolute -bottom-5 -right-5 sticky-note px-6 py-4"
               >
-                <div className="font-hand text-3xl font-bold leading-none">CS</div>
-                <div className="text-sm font-semibold opacity-80 mt-1">Purdue</div>
+                <div className="font-hand text-3xl font-bold leading-none">Founder of</div>
+                <div className="text-sm font-semibold opacity-80 mt-1">Past Forward</div>
               </motion.div>
             </div>
           </FadeIn>
@@ -113,28 +112,30 @@ export default function AboutPage() {
                     A few years ago, my family discovered a box of old VHS tapes
                     we hadn't touched in decades. Birthdays, Christmas mornings,
                     backyard barbecues — moments with relatives who are no longer
-                    with us. The problem? Nobody had a VHS player anymore.
+                    with us. Sadly, we were unable to watch any of them because no one had
+                    a working VHS player anymore.
                   </p>
                 </FadeIn>
                 <FadeIn delay={0.2}>
                   <p>
                     I spent weeks figuring out how to get them digitized — the
-                    equipment, the cables, the software. When we finally watched
-                    those videos, my whole family was in tears. The sound of voices
-                    we hadn't heard in years. The way my grandfather laughed.
+                    equipment, the cables, the software. When my family got together again, 
+                    we were all able to watch the videos together. I loved being able to share in that joy
+                    and reliving their childhood with them.
                   </p>
                 </FadeIn>
                 <FadeIn delay={0.3}>
                   <p>
                     I realized other families had the same boxes sitting in their
-                    basements, collecting dust, slowly losing the footage inside.
-                    That's when Past Forward Indy was born.
+                    basements, collecting dust, wishing they could see their old videos.
+                    To make some money for college, I decided to start Past Forward to help families
+                    around Indianapolis.
                   </p>
                 </FadeIn>
                 <FadeIn delay={0.4}>
                   <p className="font-semibold text-foreground text-xl">
-                    This isn't just how I pay for college. It's work I genuinely
-                    love doing.
+                    I genuinely love working with families around Indianapolis to reconnect them with their past.
+                    Every tape holds someone's laugh, someone's first steps, someone's voice they haven't heard in years — and getting to bring that back is the best part of my day.
                   </p>
                 </FadeIn>
               </div>
@@ -153,10 +154,10 @@ export default function AboutPage() {
             {/* Values */}
             <div className="space-y-5 pt-2">
               {[
-                { emoji: "🎥", title: "Personally Handled — Always", body: "I pick up, I digitize, I return. No third parties, no shipping risk, no strangers handling your family heirlooms." },
-                { emoji: "🔒", title: "Private & Secure", body: "Your footage is never shared or stored after the project is complete. Your memories stay yours." },
-                { emoji: "❤️", title: "Treated Like My Own", body: "I handle every tape as if it held my own family's memories — because I know exactly what they're worth." },
-                { emoji: "⚡", title: "Fast & Reliable", body: "Most orders are done in 3 days. I communicate clearly and return everything on time, every time." },
+                { title: "Personally Handled — Always", body: "I pick up, I digitize, I return. No third parties, no shipping risk, no strangers handling your family heirlooms." },
+                { title: "Private & Secure", body: "Your footage is never shared or stored after the project is complete. Your memories stay yours." },
+                { title: "Treated Like My Own", body: "I handle every tape as if it held my own family's memories — because I know exactly what they're worth." },
+                { title: "Fast & Reliable", body: "Most orders are done in 3 days. I communicate clearly and return everything on time, every time." },
               ].map((v, i) => (
                 <FadeIn key={i} delay={i * 0.1}>
                   <TiltCard className="bg-card rounded-2xl p-6 border border-border">
