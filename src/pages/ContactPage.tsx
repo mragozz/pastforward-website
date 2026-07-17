@@ -31,7 +31,7 @@ const initialForm: Form = {
 
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwWAafHUL8xiSdebl3WIceF3DBUCfpoxSvfXNTTBAgOGcYSLN-Zj8MpNX4wWFync1Iy/exec";
 
-const TAPE_TYPES = ["VHS", "VHS-C", "8mm Camcorder", "Hi8", "Digital8", "MiniDVD", "DVD"];
+const TAPE_TYPES = ["VHS", "VHS-C", "8mm Camcorder", "Hi8", "Digital8", "MiniDVD", "DVD", "Mix of Multiple Formats"];
 const DEVICE_CHECK_TYPES = ["8mm Camcorder", "Hi8", "Digital8", "MiniDVD"];
 
 const ORIGIN_COORDS = { lat: 39.9067, lon: -86.1758 }; // 46260, Indianapolis, IN
@@ -265,7 +265,7 @@ export default function ContactPage() {
 
                 <div className="grid sm:grid-cols-2 gap-6">
                   <Field label="Phone Number">
-                    <input type="tel" placeholder="(317) 555-0100" value={form.phone} onChange={set("phone")} className={inputClass} />
+                    <input type="tel" placeholder="(317) 000-0000" value={form.phone} onChange={set("phone")} className={inputClass} />
                   </Field>
                   <Field label="Zip Code" required>
                     <input
@@ -274,7 +274,7 @@ export default function ContactPage() {
                       inputMode="numeric"
                       pattern="[0-9]*"
                       maxLength={5}
-                      placeholder="46260"
+                      placeholder="46204"
                       value={form.zipcode}
                       onChange={handleZipChange}
                       className={inputClass}
