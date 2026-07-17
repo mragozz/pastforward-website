@@ -14,7 +14,7 @@ const pricing = [
     visual: <AnimatedMiniDV width={130} />, highlight: false, badge: "Optional" },
 ];
 
-const formats = ["VHS", "VHS-C", "Hi8", "8mm Camcorder", "Digital8", "MiniDV", "Betamax", "DVD"];
+const formats = ["VHS", "VHS-C", "Hi8", "8mm Camcorder", "Digital8", "MiniDV", "DVD"];
 
 const formatMarquee = [...formats, ...formats].map((f, i) => (
   <span key={i} className="flex items-center gap-3 text-white/50 font-semibold text-sm uppercase tracking-widest">
