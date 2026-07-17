@@ -10,7 +10,7 @@ const faqs = [
   { q: "What tape and disc formats do you accept?",
     a: "I accept VHS, VHS-C, 8mm Camcorder, Hi8, Digital8, and DVDs. If you have a format you're unsure about, just reach out — I'm happy to check before you commit. However, I do require the originial recording devices for 8mm Camcorder, Hi8, Digital8, and MiniDV." },
   { q: "How does pickup and dropoff work?",
-    a: "I personally pick up your tapes from anywhere in the Indianapolis area at a time that works for you. Once everything is digitized, I return all your original tapes and discs in person — nothing is kept or discarded without your permission." },
+    a: "I personally pick up your tapes from anywhere in the Indianapolis, Carmel, Westfield, Zionsville and Noblesville areas at a time that works for you. Once everything is digitized, I return all your original tapes and discs in person — nothing is kept or discarded without your permission." },
   { q: "How are my digital files delivered?",
     a: "Your memories are delivered as high-quality MP4 files via a USB drive, or a DVD — whichever you prefer. Just let me know when you place your order." },
   { q: "Is my footage kept private and secure?",
