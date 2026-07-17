@@ -48,7 +48,7 @@ export default function AboutPage() {
                 style={{ fontSize: "clamp(2.8rem, 6vw, 4.6rem)" }}
               >
                 <em className="not-italic text-accent">behind</em>{" "}
-                <span className="text-foreground">the tapes.</span>
+                <span className="text-foreground">the tapes!</span>
               </motion.div>
             </div>
             <FadeIn delay={0.4}>
