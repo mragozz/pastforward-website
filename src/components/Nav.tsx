@@ -146,7 +146,7 @@ export default function Nav() {
         <div className="px-10 py-6 border-t border-white/10 flex flex-wrap gap-6 text-white/30 text-sm">
           <span>Indianapolis, Indiana</span>
           <a href="mailto:indypastforward@gmail.com" className="hover:text-white/60 transition-colors">
-            orders@pastforwardindy.com
+            indypastforward@gmail.com
           </a>
         </div>
       </div>
