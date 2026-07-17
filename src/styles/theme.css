@@ -2,31 +2,31 @@
 
 :root {
   --font-size: 16px;
-  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-sans: 'Lora', Georgia, serif;
   --font-display: 'Playfair Display', Georgia, serif;
-  --background: #FBF7F0;
-  --foreground: #2C1810;
-  --card: #FFFFFF;
-  --card-foreground: #2C1810;
-  --popover: #FFFFFF;
-  --popover-foreground: #2C1810;
-  --primary: #1A6B78;
-  --primary-foreground: #FFFFFF;
-  --secondary: #F5EDD8;
-  --secondary-foreground: #2C1810;
-  --muted: #EDE4D6;
-  --muted-foreground: #8B6E58;
-  --accent: #E86030;
-  --accent-foreground: #FFFFFF;
+  --background: #0A2A1F;
+  --foreground: #F4EBD3;
+  --card: #0F3628;
+  --card-foreground: #F4EBD3;
+  --popover: #0F3628;
+  --popover-foreground: #F4EBD3;
+  --primary: #C9A34E;
+  --primary-foreground: #123222;
+  --secondary: #08241A;
+  --secondary-foreground: #F4EBD3;
+  --muted: #14402F;
+  --muted-foreground: #C7BA96;
+  --accent: #E3C878;
+  --accent-foreground: #123222;
   --destructive: #d4183d;
   --destructive-foreground: #ffffff;
-  --border: rgba(44, 24, 16, 0.12);
+  --border: rgba(201, 163, 78, 0.25);
   --input: transparent;
-  --input-background: #F5EDD8;
+  --input-background: #0F3628;
   --switch-background: #cbced4;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: #1A6B78;
+  --ring: #C9A34E;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -121,6 +121,38 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* ── The Vault details: rainbow stripe + sticky note ──────────── */
+.rainbow-stripe {
+  height: 6px;
+  width: 100%;
+  background: linear-gradient(90deg,
+    #E1152C 0 20%, #F05500 20% 40%, #FFB500 40% 60%,
+    #00A550 60% 80%, #0087C9 80% 100%);
+}
+
+.sticky-note {
+  background: #F7EBD3;
+  color: #2B1B0E;
+  border-radius: 4px;
+  transform: rotate(-1.5deg);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+}
+.sticky-note::before {
+  content: "";
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  width: 92px;
+  height: 24px;
+  transform: translateX(-50%) rotate(-2deg);
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.font-hand {
+  font-family: 'Caveat', 'Comic Sans MS', cursive;
 }
 
 @keyframes marquee-fwd {

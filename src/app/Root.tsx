@@ -8,6 +8,7 @@ export default function Root() {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+    document.body.scrollTop = 0; // body is the actual scroll container (html/body are height:100%)
   }, [pathname]);
 
   return (

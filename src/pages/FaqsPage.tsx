@@ -74,7 +74,7 @@ export default function FaqsPage() {
               <Link to="/contact">
                 <motion.span
                   whileHover={{ scale: 1.03, y: -1 }}
-                  className="inline-block bg-primary text-white font-bold text-lg px-8 py-4 rounded-2xl hover:bg-[#135761] transition-colors cursor-pointer"
+                  className="inline-block bg-primary text-primary-foreground font-bold text-lg px-8 py-4 rounded-2xl hover:bg-[#D9B564] transition-colors cursor-pointer"
                 >
                   Send Me a Message
                 </motion.span>

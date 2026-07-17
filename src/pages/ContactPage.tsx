@@ -56,10 +56,10 @@ Additional Notes: ${form.notes}`
       {/* Hero */}
       <section
         className="pt-40 pb-20 relative overflow-hidden"
-        style={{ background: "linear-gradient(150deg, #FBF7F0 0%, #F5EDD8 55%, #EAE0CE 100%)" }}
+        style={{ background: "linear-gradient(150deg, #113627 0%, #0A2A1F 55%, #071F16 100%)" }}
       >
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(232,96,48,0.14) 0%, transparent 65%)", transform: "translate(30%,-30%)" }} />
+          style={{ background: "radial-gradient(circle, rgba(201,163,78,0.14) 0%, transparent 65%)", transform: "translate(30%,-30%)" }} />
         <div className="max-w-6xl mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-16 items-center">
           <div>
             <FadeIn>
@@ -132,7 +132,7 @@ Additional Notes: ${form.notes}`
                 </p>
                 <button
                   onClick={() => { setForm(initialForm); setSubmitted(false); }}
-                  className="bg-primary text-white font-bold px-10 py-4 rounded-2xl hover:bg-[#135761] transition-colors text-lg"
+                  className="bg-primary text-primary-foreground font-bold px-10 py-4 rounded-2xl hover:bg-[#D9B564] transition-colors text-lg"
                 >
                   Submit Another Request
                 </button>
@@ -178,11 +178,11 @@ Additional Notes: ${form.notes}`
                 </Field>
 
                 {/* Rush toggle */}
-                <div className="flex items-start gap-4 bg-accent/6 rounded-xl p-5 border border-accent/15">
+                <div className="sticky-note relative flex items-start gap-4 p-5">
                   <span className="text-2xl shrink-0">⚡</span>
                   <div>
-                    <div className="font-semibold text-foreground mb-1">Need it faster? Rush + Editing available.</div>
-                    <div className="text-foreground/60 text-base">
+                    <div className="font-hand text-2xl font-bold text-[#2B1B0E] mb-1 leading-tight">Need it faster? Rush + Editing available.</div>
+                    <div className="text-[#2B1B0E]/75 text-base">
                       Add $25 to your order for priority turnaround and optional basic video editing. Just mention it in your notes above.
                     </div>
                   </div>
@@ -193,7 +193,7 @@ Additional Notes: ${form.notes}`
                     type="submit"
                     whileHover={{ scale: 1.02, y: -2 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full bg-accent text-white text-xl font-bold py-5 rounded-2xl hover:bg-[#d05525] transition-colors shadow-xl shadow-accent/20 cursor-pointer"
+                    className="w-full bg-accent text-accent-foreground text-xl font-bold py-5 rounded-2xl hover:bg-[#F0DA96] transition-colors shadow-xl shadow-accent/20 cursor-pointer"
                   >
                     Send My Order Request →
                   </motion.button>

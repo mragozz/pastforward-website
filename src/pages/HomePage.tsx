@@ -31,7 +31,7 @@ const previews = [
     title: "The person behind\nevery tape.",
     body: "A Purdue CS student who started this because a box of old family tapes changed everything. Personal service — always.",
     visual: <AnimatedMiniDV width={110} />,
-    accent: "#E86030",
+    accent: "#E3C878",
   },
   {
     to: "/services",
@@ -44,7 +44,7 @@ const previews = [
         <span className="text-muted-foreground mb-1">/ tape</span>
       </div>
     ),
-    accent: "#1A6B78",
+    accent: "#8FB89E",
   },
   {
     to: "/process",
@@ -61,7 +61,7 @@ const previews = [
         ))}
       </div>
     ),
-    accent: "#E86030",
+    accent: "#E3C878",
   },
   {
     to: "/faqs",
@@ -75,7 +75,7 @@ const previews = [
         ))}
       </div>
     ),
-    accent: "#1A6B78",
+    accent: "#8FB89E",
   },
 ];
 
@@ -114,16 +114,16 @@ export default function HomePage() {
         ref={heroRef}
         onMouseMove={onMouseMove}
         className="min-h-screen flex items-center relative overflow-hidden"
-        style={{ background: "linear-gradient(150deg, #FBF7F0 0%, #F5EDD8 50%, #EAE0CE 100%)" }}
+        style={{ background: "linear-gradient(150deg, #113627 0%, #0A2A1F 50%, #071F16 100%)" }}
       >
         {/* Background gradient blobs */}
         <motion.div
           className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(232,96,48,0.16) 0%, transparent 65%)", transform: "translate(30%,-30%)", y: tapeY }}
+          style={{ background: "radial-gradient(circle, rgba(201,163,78,0.14) 0%, transparent 65%)", transform: "translate(30%,-30%)", y: tapeY }}
         />
         <motion.div
           className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(26,107,120,0.14) 0%, transparent 65%)", transform: "translate(-30%,30%)", y: tapeY }}
+          style={{ background: "radial-gradient(circle, rgba(47,107,79,0.2) 0%, transparent 65%)", transform: "translate(-30%,30%)", y: tapeY }}
         />
 
         <div className="max-w-7xl mx-auto px-6 pt-28 pb-16 grid md:grid-cols-2 gap-8 items-center relative z-10 w-full">
@@ -195,7 +195,7 @@ export default function HomePage() {
                 <motion.span
                   whileHover={{ scale: 1.03, y: -2 }}
                   whileTap={{ scale: 0.98 }}
-                  className="inline-block bg-accent text-white text-xl font-bold px-10 py-5 rounded-2xl shadow-lg shadow-accent/25 hover:bg-[#d05525] transition-colors cursor-pointer"
+                  className="inline-block bg-accent text-accent-foreground text-xl font-bold px-10 py-5 rounded-2xl shadow-lg shadow-accent/25 hover:bg-[#F0DA96] transition-colors cursor-pointer"
                 >
                   Start My Order →
                 </motion.span>
@@ -263,8 +263,12 @@ export default function HomePage() {
       </section>
 
       {/* ══ FORMAT MARQUEE ════════════════════════════════════════ */}
-      <div className="border-y border-border py-5 bg-background overflow-hidden">
-        <Marquee items={formatItems} speed={22} />
+      <div className="bg-background overflow-hidden">
+        <div className="rainbow-stripe" />
+        <div className="py-5">
+          <Marquee items={formatItems} speed={22} />
+        </div>
+        <div className="rainbow-stripe" />
       </div>
 
       {/* ══ WHY IT MATTERS ════════════════════════════════════════ */}
@@ -310,7 +314,7 @@ export default function HomePage() {
       </section>
 
       {/* ══ STATS COUNT-UP ════════════════════════════════════════ */}
-      <section className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #1A6B78 0%, #0D4A54 100%)" }}>
+      <section className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #14402F 0%, #071F16 100%)" }}>
         {/* Background tape reel decoration */}
         <motion.div
           className="absolute right-[-80px] top-1/2 -translate-y-1/2 opacity-[0.06]"
@@ -451,7 +455,7 @@ export default function HomePage() {
       </section>
 
       {/* ══ FILM STRIP DIVIDER ════════════════════════════════════ */}
-      <div className="bg-[#1A0F0A] py-5 overflow-hidden relative">
+      <div className="bg-[#051710] py-5 overflow-hidden relative">
         {/* Top perforations */}
         <div className="absolute top-0 left-0 right-0 h-[18px] flex items-center px-3 gap-3">
           {Array.from({ length: 80 }).map((_, i) => (
@@ -485,7 +489,7 @@ export default function HomePage() {
       <section className="py-20 md:py-24 bg-secondary relative overflow-hidden">
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(232,96,48,0.1) 0%, transparent 65%)" }}
+          style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(201,163,78,0.12) 0%, transparent 65%)" }}
         />
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <FadeIn>
@@ -506,7 +510,7 @@ export default function HomePage() {
           <FadeIn delay={0.28}>
             <div className="mx-auto mb-8 flex max-w-2xl flex-wrap justify-center gap-3 text-sm font-semibold text-foreground/70">
               {["Free local pickup", "Personal updates", "Every original returned"].map((item) => (
-                <span key={item} className="rounded-full border border-primary/15 bg-white/55 px-4 py-2.5 shadow-sm">{item}</span>
+                <span key={item} className="rounded-full border border-primary/25 bg-white/8 px-4 py-2.5 shadow-sm">{item}</span>
               ))}
             </div>
           </FadeIn>
@@ -515,7 +519,7 @@ export default function HomePage() {
               <motion.span
                 whileHover={{ scale: 1.05, y: -3 }}
                 whileTap={{ scale: 0.97 }}
-                className="inline-block bg-accent text-white text-xl md:text-2xl font-bold px-11 py-5 rounded-2xl shadow-2xl shadow-accent/30 hover:bg-[#d05525] transition-colors cursor-pointer"
+                className="inline-block bg-accent text-accent-foreground text-xl md:text-2xl font-bold px-11 py-5 rounded-2xl shadow-2xl shadow-accent/30 hover:bg-[#F0DA96] transition-colors cursor-pointer"
               >
                 Start My Order →
               </motion.span>

@@ -261,19 +261,19 @@ export function PageHero({
   return (
     <section
       className="pt-40 pb-24 relative overflow-hidden"
-      style={{ background: "linear-gradient(150deg, #FBF7F0 0%, #F5EDD8 60%, #EAE0CE 100%)" }}
+      style={{ background: "linear-gradient(150deg, #113627 0%, #0A2A1F 60%, #071F16 100%)" }}
     >
       <div
         className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
         style={{
-          background: "radial-gradient(circle, rgba(232,96,48,0.14) 0%, transparent 65%)",
+          background: "radial-gradient(circle, rgba(201,163,78,0.14) 0%, transparent 65%)",
           transform: "translate(30%, -30%)",
         }}
       />
       <div
         className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full pointer-events-none"
         style={{
-          background: "radial-gradient(circle, rgba(26,107,120,0.12) 0%, transparent 65%)",
+          background: "radial-gradient(circle, rgba(47,107,79,0.18) 0%, transparent 65%)",
           transform: "translate(-30%, 30%)",
         }}
       />

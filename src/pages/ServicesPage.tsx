@@ -18,7 +18,7 @@ const formats = ["VHS", "VHS-C", "Hi8", "8mm Camcorder", "Digital8", "MiniDV", "
 
 const formatMarquee = [...formats, ...formats].map((f, i) => (
   <span key={i} className="flex items-center gap-3 text-white/50 font-semibold text-sm uppercase tracking-widest">
-    <span className="w-1 h-1 rounded-full bg-[#E86030]" />
+    <span className="w-1 h-1 rounded-full bg-[#E3C878]" />
     {f}
   </span>
 ));
@@ -48,7 +48,7 @@ export default function ServicesPage() {
                   >
                     {item.badge && (
                       <span className={`absolute top-4 right-4 text-xs font-bold px-3 py-1.5 rounded-full z-10 ${
-                        item.highlight ? "bg-accent text-white" : "bg-primary/12 text-primary"
+                        item.highlight ? "bg-[#123222] text-[#E3C878]" : "bg-primary/12 text-primary"
                       }`}>
                         {item.badge}
                       </span>
@@ -60,18 +60,18 @@ export default function ServicesPage() {
                       {item.visual}
                     </div>
                     {/* Details */}
-                    <div className={`flex flex-col flex-1 p-7 ${item.highlight ? "text-white" : ""}`}>
-                      <h3 className={`font-display text-xl font-semibold mb-1 ${item.highlight ? "text-white" : "text-foreground"}`}>
+                    <div className={`flex flex-col flex-1 p-7 ${item.highlight ? "text-[#123222]" : ""}`}>
+                      <h3 className={`font-display text-xl font-semibold mb-1 ${item.highlight ? "text-[#123222]" : "text-foreground"}`}>
                         {item.label}
                       </h3>
-                      <p className={`text-sm mb-6 ${item.highlight ? "text-white/65" : "text-muted-foreground"}`}>
+                      <p className={`text-sm mb-6 ${item.highlight ? "text-[#123222]/70" : "text-muted-foreground"}`}>
                         {item.sub}
                       </p>
                       <div className="mt-auto flex items-end gap-2">
-                        <span className={`font-display text-5xl font-bold ${item.highlight ? "text-white" : "text-foreground"}`}>
+                        <span className={`font-display text-5xl font-bold ${item.highlight ? "text-[#123222]" : "text-foreground"}`}>
                           ${item.price}
                         </span>
-                        <span className={`mb-1.5 text-lg ${item.highlight ? "text-white/60" : "text-muted-foreground"}`}>
+                        <span className={`mb-1.5 text-lg ${item.highlight ? "text-[#123222]/70" : "text-muted-foreground"}`}>
                           / {item.unit}
                         </span>
                       </div>
@@ -84,7 +84,7 @@ export default function ServicesPage() {
 
           {/* Accepted formats section */}
           <FadeIn>
-            <div className="bg-[#1A0F0A] rounded-3xl overflow-hidden">
+            <div className="bg-[#051710] rounded-3xl overflow-hidden">
               <div className="px-10 pt-10 pb-6">
                 <h2 className="font-display text-3xl font-bold text-white mb-2">Accepted Formats</h2>
                 <p className="text-white/50 text-lg mb-8">Every major home video format from the last 50 years.</p>
@@ -143,7 +143,7 @@ export default function ServicesPage() {
               <motion.span
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.97 }}
-                className="inline-block bg-accent text-white text-xl font-bold px-12 py-5 rounded-2xl shadow-xl shadow-accent/25 hover:bg-[#d05525] transition-colors cursor-pointer"
+                className="inline-block bg-accent text-accent-foreground text-xl font-bold px-12 py-5 rounded-2xl shadow-xl shadow-accent/25 hover:bg-[#F0DA96] transition-colors cursor-pointer"
               >
                 Start My Order →
               </motion.span>

@@ -14,11 +14,11 @@ export default function AboutPage() {
       {/* Hero */}
       <section
         className="pt-40 pb-24 relative overflow-hidden"
-        style={{ background: "linear-gradient(150deg, #FBF7F0 0%, #F5EDD8 60%, #EAE0CE 100%)" }}
+        style={{ background: "linear-gradient(150deg, #113627 0%, #0A2A1F 60%, #071F16 100%)" }}
       >
         <div
           className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(232,96,48,0.14) 0%, transparent 65%)", transform: "translate(30%,-30%)" }}
+          style={{ background: "radial-gradient(circle, rgba(201,163,78,0.14) 0%, transparent 65%)", transform: "translate(30%,-30%)" }}
         />
         <div className="max-w-6xl mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-16 items-center">
           {/* Text */}
@@ -80,17 +80,17 @@ export default function AboutPage() {
                   alt="Owner of Past Forward Indy — CS student at Purdue University"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(26,107,120,0.35) 0%, transparent 60%)" }} />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(7,31,22,0.5) 0%, transparent 60%)" }} />
               </motion.div>
               {/* Badge */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.7, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6, type: "spring" }}
-                className="absolute -bottom-5 -right-5 bg-accent text-white rounded-2xl px-6 py-4 shadow-xl shadow-accent/30"
+                className="absolute -bottom-5 -right-5 sticky-note px-6 py-4"
               >
-                <div className="font-display text-2xl font-bold leading-none">CS</div>
-                <div className="text-sm font-semibold opacity-90 mt-1">Purdue</div>
+                <div className="font-hand text-3xl font-bold leading-none">CS</div>
+                <div className="text-sm font-semibold opacity-80 mt-1">Purdue</div>
               </motion.div>
             </div>
           </FadeIn>
@@ -142,7 +142,7 @@ export default function AboutPage() {
                 <Link to="/contact">
                   <motion.span
                     whileHover={{ scale: 1.02, y: -1 }}
-                    className="inline-flex items-center gap-2 mt-10 bg-primary text-white text-lg font-bold px-8 py-4 rounded-2xl hover:bg-[#135761] transition-colors shadow-lg shadow-primary/20 cursor-pointer"
+                    className="inline-flex items-center gap-2 mt-10 bg-primary text-primary-foreground text-lg font-bold px-8 py-4 rounded-2xl hover:bg-[#D9B564] transition-colors shadow-lg shadow-primary/20 cursor-pointer"
                   >
                     Get in Touch <ArrowRight size={20} />
                   </motion.span>

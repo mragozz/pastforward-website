@@ -66,6 +66,9 @@ export function AnimatedVHS({ width = 460, slow = false, archiveLabel = "FAMILY 
         <clipPath id="vhs-window-clip">
           <rect x="24" y="182" width="412" height="100" rx="8" />
         </clipPath>
+        <clipPath id="vhs-label-clip">
+          <rect x="22" y="20" width={w - 44} height="152" rx="11" />
+        </clipPath>
       </defs>
 
       {/* Main casing */}
@@ -77,17 +80,20 @@ export function AnimatedVHS({ width = 460, slow = false, archiveLabel = "FAMILY 
 
       {/* Label area */}
       <rect x="22" y="20" width={w - 44} height="152" rx="11" fill="#F5EDD8" />
-      {/* Label top accent stripe */}
-      <rect x="22" y="20" width={w - 44} height="8" rx="11" fill="#E86030" opacity="0.7" />
-      <rect x="22" y="24" width={w - 44} height="4" fill="#E86030" opacity="0.7" />
+      {/* Label top accent stripe — Past Forward rainbow */}
+      <g clipPath="url(#vhs-label-clip)">
+        {["#E1152C", "#F05500", "#FFB500", "#00A550", "#0087C9"].map((c, i) => (
+          <rect key={c} x={22 + (i * (w - 44)) / 5} y="20" width={(w - 44) / 5} height="11" fill={c} />
+        ))}
+      </g>
       {/* Label content */}
       <text x={w / 2} y="78" textAnchor="middle" fontSize="18" fontWeight="700" fill="#2C1810" fontFamily="Georgia, serif">
         Past Forward Indy
       </text>
-      <text x={w / 2} y="102" textAnchor="middle" fontSize={archiveLabel.length > 14 ? "9.5" : "12"} fontWeight="600" fill="#1A6B78" fontFamily="system-ui, sans-serif" letterSpacing="0.08em">
+      <text x={w / 2} y="102" textAnchor="middle" fontSize={archiveLabel.length > 14 ? "9.5" : "12"} fontWeight="600" fill="#0D3B2E" fontFamily="system-ui, sans-serif" letterSpacing="0.08em">
         {archiveLabel}
       </text>
-      <rect x="56" y="118" width={w - 112} height="2.5" rx="1.25" fill="#E86030" opacity="0.4" />
+      <rect x="56" y="118" width={w - 112} height="2.5" rx="1.25" fill="#C9A34E" opacity="0.6" />
       <text x={w / 2} y="146" textAnchor="middle" fontSize="10.5" fill="#8B6E58" fontFamily="system-ui, sans-serif" letterSpacing="0.06em">
         Indianapolis, Indiana
       </text>
@@ -189,9 +195,9 @@ export function AnimatedMiniDV({ width = 200 }: { width?: number }) {
 
       {/* Label */}
       <rect x="12" y="12" width={w - 24} height="70" rx="7" fill="#F5EDD8" />
-      <rect x="12" y="12" width={w - 24} height="5" rx="7" fill="#1A6B78" opacity="0.8" />
+      <rect x="12" y="12" width={w - 24} height="5" rx="7" fill="#C9A34E" opacity="0.9" />
       <text x={w / 2} y="42" textAnchor="middle" fontSize="10" fontWeight="700" fill="#2C1810" fontFamily="Georgia, serif">Past Forward</text>
-      <text x={w / 2} y="57" textAnchor="middle" fontSize="7.5" fontWeight="600" fill="#E86030" fontFamily="system-ui" letterSpacing="0.1em">MINIDV · HI8</text>
+      <text x={w / 2} y="57" textAnchor="middle" fontSize="7.5" fontWeight="600" fill="#7E2A1E" fontFamily="system-ui" letterSpacing="0.1em">MINIDV · HI8</text>
       <text x={w / 2} y="72" textAnchor="middle" fontSize="7" fill="#8B6E58" fontFamily="system-ui">Indianapolis, IN</text>
 
       {/* Window */}
@@ -285,11 +291,11 @@ export function AnimatedFlashDrive({ width = 220 }: { width?: number }) {
           <div className="absolute left-[29%] bottom-[34%] h-[7%] w-[34%] rounded-full bg-[#617979]" />
         </div>
         {/* Dark, tactile body */}
-        <div className="absolute right-0 top-[8%] h-[84%] w-[77%] rounded-[20%] border border-[#321e17]" style={{ background: "linear-gradient(140deg, #5e3e2c 0%, #291813 42%, #1a6b78 100%)", boxShadow: "inset 2px 2px 2px rgba(255,255,255,.16), inset -5px -6px 10px rgba(0,0,0,.28), 0 20px 23px rgba(44,24,16,.28)" }}>
+        <div className="absolute right-0 top-[8%] h-[84%] w-[77%] rounded-[20%] border border-[#321e17]" style={{ background: "linear-gradient(140deg, #3d2b1e 0%, #16100b 42%, #0d3b2e 100%)", boxShadow: "inset 2px 2px 2px rgba(255,255,255,.16), inset -5px -6px 10px rgba(0,0,0,.28), 0 20px 23px rgba(0,0,0,.28)" }}>
           <div className="absolute inset-x-[11%] top-[18%] h-[48%] rounded-xl border border-white/25 bg-[#f5edd8] shadow-inner">
-            <div className="absolute left-0 right-0 top-0 h-1.5 rounded-t-xl bg-[#e86030]" />
+            <div className="absolute left-0 right-0 top-0 h-1.5 rounded-t-xl bg-[#c9a34e]" />
             <p className="mt-[17%] text-center font-display text-[9px] font-bold tracking-[.08em] text-[#2c1810]">PAST FORWARD</p>
-            <p className="mt-1 text-center text-[5px] font-bold tracking-[.18em] text-[#1a6b78]">YOUR MEMORIES</p>
+            <p className="mt-1 text-center text-[5px] font-bold tracking-[.18em] text-[#0d3b2e]">YOUR MEMORIES</p>
           </div>
           <div className="absolute bottom-[12%] right-[13%] h-2.5 w-2.5 rounded-full bg-[#b7e082] shadow-[0_0_11px_#b7e082]" />
         </div>
@@ -307,8 +313,8 @@ export function MemoryTransferJourney() {
   ];
 
   return (
-    <div className="relative mx-auto w-full max-w-5xl overflow-hidden rounded-[2rem] border border-white/10 bg-[#160f0c] px-5 py-9 shadow-2xl shadow-[#2c1810]/20 sm:px-10 sm:py-12">
-      <div className="absolute inset-0 opacity-70" style={{ background: "radial-gradient(circle at 15% 10%, rgba(232,96,48,.28), transparent 28%), radial-gradient(circle at 85% 95%, rgba(26,107,120,.32), transparent 34%)" }} />
+    <div className="relative mx-auto w-full max-w-5xl overflow-hidden rounded-[2rem] border border-white/10 bg-[#062018] px-5 py-9 shadow-2xl shadow-black/20 sm:px-10 sm:py-12">
+      <div className="absolute inset-0 opacity-70" style={{ background: "radial-gradient(circle at 15% 10%, rgba(201,163,78,.25), transparent 28%), radial-gradient(circle at 85% 95%, rgba(47,107,79,.3), transparent 34%)" }} />
       <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.8) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
 
       <svg viewBox="0 0 1000 250" className="absolute left-0 top-1/2 hidden w-full -translate-y-1/2 md:block" aria-hidden="true">
@@ -316,7 +322,7 @@ export function MemoryTransferJourney() {
         <motion.path
           d="M 108 130 C 245 32, 332 220, 502 130 S 752 34, 900 122"
           fill="none"
-          stroke="#ef875f"
+          stroke="#e3c878"
           strokeWidth="3"
           strokeLinecap="round"
           strokeDasharray="10 18"
@@ -361,9 +367,9 @@ export function MemoryTransferJourney() {
 /* ─── Cinematic 3D VHS stack ───────────────────────────────────── */
 export function CinematicTapeStack({ mouseX = 0, mouseY = 0 }: { mouseX?: number; mouseY?: number }) {
   const tapes = [
-    { label: "SUMMER '94", color: "#1a6b78", x: -38, y: 186, rotate: -8, width: 330, delay: .2 },
-    { label: "CHRISTMAS", color: "#e86030", x: 22, y: 108, rotate: 5, width: 358, delay: .42 },
-    { label: "FAMILY ARCHIVE", color: "#d39a36", x: -12, y: 21, rotate: -3, width: 392, delay: .64 },
+    { label: "SUMMER '94", color: "#0d3b2e", x: -38, y: 186, rotate: -8, width: 330, delay: .2 },
+    { label: "CHRISTMAS", color: "#7e2a1e", x: 22, y: 108, rotate: 5, width: 358, delay: .42 },
+    { label: "FAMILY ARCHIVE", color: "#c9a34e", x: -12, y: 21, rotate: -3, width: 392, delay: .64 },
   ];
 
   return (

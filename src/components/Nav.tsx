@@ -16,9 +16,14 @@ export default function Nav() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 50);
+    // html/body are height:100%, so the body — not the window — is the scroll container
+    const fn = () => setScrolled((window.scrollY || document.body.scrollTop) > 50);
     window.addEventListener("scroll", fn, { passive: true });
-    return () => window.removeEventListener("scroll", fn);
+    document.body.addEventListener("scroll", fn, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", fn);
+      document.body.removeEventListener("scroll", fn);
+    };
   }, []);
 
   useEffect(() => {
@@ -36,12 +41,13 @@ export default function Nav() {
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-400"
         style={{
           background: scrolled
-            ? "rgba(251, 247, 240, 0.88)"
+            ? "rgba(7, 31, 22, 0.9)"
             : "transparent",
           backdropFilter: scrolled ? "blur(14px)" : "none",
-          boxShadow: scrolled ? "0 1px 0 rgba(44,24,16,0.08)" : "none",
+          boxShadow: scrolled ? "0 1px 0 rgba(201,163,78,0.28)" : "none",
         }}
       >
+        <div className="rainbow-stripe" />
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link to="/" className="group flex flex-col leading-none">
             <span className="font-display text-2xl font-bold text-primary transition-colors group-hover:text-accent">
@@ -66,7 +72,7 @@ export default function Nav() {
       <div
         className="fixed inset-0 z-[200] flex flex-col"
         style={{
-          background: "#1A0F0A",
+          background: "#071F16",
           opacity: open ? 1 : 0,
           pointerEvents: open ? "all" : "none",
           transition: "opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -76,14 +82,14 @@ export default function Nav() {
         <div
           className="absolute top-0 right-0 w-64 h-64 rounded-full opacity-[0.06]"
           style={{
-            background: "radial-gradient(circle, #E86030 0%, transparent 70%)",
+            background: "radial-gradient(circle, #C9A34E 0%, transparent 70%)",
             transform: "translate(30%, -30%)",
           }}
         />
         <div
           className="absolute bottom-0 left-0 w-96 h-96 rounded-full opacity-[0.05]"
           style={{
-            background: "radial-gradient(circle, #1A6B78 0%, transparent 70%)",
+            background: "radial-gradient(circle, #2F6B4F 0%, transparent 70%)",
             transform: "translate(-40%, 40%)",
           }}
         />
@@ -116,7 +122,7 @@ export default function Nav() {
               <span className="text-white/25 font-mono text-sm tabular-nums">
                 0{i + 1}
               </span>
-              <span className="font-display font-bold text-white group-hover:text-[#E86030] transition-colors"
+              <span className="font-display font-bold text-white group-hover:text-[#E3C878] transition-colors"
                 style={{ fontSize: "clamp(2.4rem, 6vw, 5rem)" }}>
                 {item.label}
               </span>
@@ -131,7 +137,7 @@ export default function Nav() {
               opacity: open ? 1 : 0,
             }}
           >
-            <span className="inline-block bg-[#E86030] text-white text-xl font-bold px-9 py-4 rounded-2xl hover:bg-[#d05525] transition-colors">
+            <span className="inline-block bg-[#E3C878] text-[#123222] text-xl font-bold px-9 py-4 rounded-2xl hover:bg-[#F0DA96] transition-colors">
               Start My Order →
             </span>
           </Link>

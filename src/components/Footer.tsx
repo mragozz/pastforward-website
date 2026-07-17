@@ -13,12 +13,13 @@ const formats = ["VHS", "VHS-C", "Hi8", "8mm Camcorder", "Digital8", "MiniDV", "
 
 export default function Footer() {
   return (
-    <footer style={{ background: "#1A0F0A" }} className="text-white pt-20 pb-10">
-      <div className="max-w-7xl mx-auto px-6">
+    <footer style={{ background: "#071F16" }} className="text-white">
+      <div className="rainbow-stripe" />
+      <div className="max-w-7xl mx-auto px-6 pt-20 pb-10">
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="md:col-span-2">
             <div className="font-display text-4xl font-bold mb-1">Past Forward</div>
-            <div className="text-[11px] font-bold tracking-[0.2em] text-[#E86030] uppercase mb-6">Indianapolis, Indiana</div>
+            <div className="text-[11px] font-bold tracking-[0.2em] text-[#E3C878] uppercase mb-6">Indianapolis, Indiana</div>
             <p className="text-white/50 text-lg leading-relaxed max-w-sm">
               Preserving Indianapolis family memories through careful, personal
               video digitization — one tape at a time.

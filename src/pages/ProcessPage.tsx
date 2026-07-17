@@ -6,15 +6,15 @@ import { FadeIn, PageHero } from "../components/ui";
 
 const steps = [
   { n: "01", emoji: "📱", title: "You Reach Out",
-    body: "Fill out the order form or send a message. Tell me your tape types and quantities — I'll get back to you quickly to schedule a pickup time that works for you.", color: "#E86030" },
+    body: "Fill out the order form or send a message. Tell me your tape types and quantities — I'll get back to you quickly to schedule a pickup time that works for you.", color: "#C9A34E", text: "#123222" },
   { n: "02", emoji: "🚗", title: "I Pick Up Your Tapes",
-    body: "I come to you — anywhere in the Indianapolis metro area. I carefully collect every original tape and disc, wrapped and protected for transport.", color: "#1A6B78" },
+    body: "I come to you — anywhere in the Indianapolis metro area. I carefully collect every original tape and disc, wrapped and protected for transport.", color: "#2F6B4F", text: "#F4EBD3" },
   { n: "03", emoji: "💻", title: "I Digitize Everything",
-    body: "Using professional capture equipment, I convert each tape to a high-quality MP4 file. Every conversion gets a quality check — no guessing, no shortcuts.", color: "#E86030" },
+    body: "Using professional capture equipment, I convert each tape to a high-quality MP4 file. Every conversion gets a quality check — no guessing, no shortcuts.", color: "#C9A34E", text: "#123222" },
   { n: "04", emoji: "☁️", title: "Your Files Are Ready",
-    body: "You'll receive a private Google Drive link or files delivered on a USB/hard drive — organized, labeled, and ready to watch on any device.", color: "#1A6B78" },
+    body: "You'll receive a private Google Drive link or files delivered on a USB/hard drive — organized, labeled, and ready to watch on any device.", color: "#2F6B4F", text: "#F4EBD3" },
   { n: "05", emoji: "🎁", title: "I Return Your Originals",
-    body: "I personally return every original tape and disc. Nothing is kept, discarded, or damaged. You'll have both your originals and your new digital copies.", color: "#E86030" },
+    body: "I personally return every original tape and disc. Nothing is kept, discarded, or damaged. You'll have both your originals and your new digital copies.", color: "#C9A34E", text: "#123222" },
 ];
 
 export default function ProcessPage() {
@@ -46,8 +46,8 @@ export default function ProcessPage() {
         <FadeIn delay={0.35}>
           <div className="mt-9 flex max-w-2xl flex-wrap gap-3 text-sm font-bold text-foreground/70">
             {["Pickup confirmed", "Conversion underway", "Ready for return"].map((item, index) => (
-              <span key={item} className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-white/60 px-4 py-2.5 shadow-sm">
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[10px] text-white">{index + 1}</span>
+              <span key={item} className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-white/8 px-4 py-2.5 shadow-sm">
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[10px] text-[#123222]">{index + 1}</span>
                 {item}
               </span>
             ))}
@@ -80,10 +80,10 @@ export default function ProcessPage() {
                   <div className="flex gap-8 items-start">
                     {/* Step bubble */}
                     <motion.div
-                      className="shrink-0 w-16 h-16 rounded-full flex items-center justify-center font-display text-lg font-bold text-white shadow-lg relative z-10"
+                      className="shrink-0 w-16 h-16 rounded-full flex items-center justify-center font-display text-lg font-bold shadow-lg relative z-10"
                       style={{
-                        background: progress > (i / steps.length) ? step.color : "#EDE4D6",
-                        color: progress > (i / steps.length) ? "white" : "#8B6E58",
+                        background: progress > (i / steps.length) ? step.color : "#14402F",
+                        color: progress > (i / steps.length) ? step.text : "#C7BA96",
                         transition: "background 0.4s ease, color 0.4s ease",
                         boxShadow: progress > (i / steps.length) ? `0 8px 24px ${step.color}40` : "none",
                       }}
@@ -155,7 +155,7 @@ export default function ProcessPage() {
                 <Link to="/contact">
                   <motion.span
                     whileHover={{ scale: 1.03, y: -1 }}
-                    className="inline-block bg-primary text-white font-bold text-lg px-8 py-4 rounded-2xl hover:bg-[#135761] transition-colors cursor-pointer shadow-lg shadow-primary/20"
+                    className="inline-block bg-primary text-primary-foreground font-bold text-lg px-8 py-4 rounded-2xl hover:bg-[#D9B564] transition-colors cursor-pointer shadow-lg shadow-primary/20"
                   >
                     Start an Order →
                   </motion.span>
