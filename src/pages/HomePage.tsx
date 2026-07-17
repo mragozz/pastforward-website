@@ -6,7 +6,7 @@ import { AnimatedVHS, AnimatedDVD, AnimatedMiniDV, CinematicTapeStack, MemoryTra
 import { FadeIn, RevealLine, CountUp, TiltCard, Marquee } from "../components/ui";
 
 /* ── Formats marquee items ────────────────────────────────────── */
-const formatItems = ["VHS", "Hi8", "MiniDV", "Camcorder", "DVD", "VHS-C", "8mm"].map((f) => (
+const formatItems = ["VHS", "Hi8", "MiniDV", "Camcorder", "Digital8", "DVD", "VHS-C", "8mm"].map((f) => (
   <span key={f} className="flex items-center gap-4 text-foreground/40 font-semibold text-lg uppercase tracking-widest">
     <span className="w-1.5 h-1.5 rounded-full bg-accent inline-block" />
     {f}
