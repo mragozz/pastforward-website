@@ -83,18 +83,21 @@ export default function ServicesPage() {
           </div>
 
           {/* Accepted formats section */}
-          <FadeIn>
-            <div className="bg-[#051710] rounded-3xl overflow-hidden">
-              <div className="px-10 pt-10 pb-6">
-                <h2 className="font-display text-3xl font-bold text-white mb-2">Accepted Formats</h2>
-                <p className="text-white/50 text-lg mb-8">Every major home video format from the last 50 years.</p>
-                <div className="flex flex-wrap gap-3 mb-8">
-                  {formats.map((f) => (
+            <FadeIn>
+              <div className="bg-[#051710] rounded-3xl overflow-hidden">
+                <div className="px-10 pt-10 pb-6">
+                  <h2 className="font-display text-3xl font-bold text-white mb-2">Accepted Formats*</h2>
+                  <p className="text-white/50 text-lg mb-8">Every major home video format from the last 50 years.</p>
+                  <div className="flex flex-wrap gap-3 mb-8">
+                    {formats.map((f) => (
                     <span key={f} className="bg-white/8 text-white/80 font-semibold text-sm px-5 py-2.5 rounded-full border border-white/10">
                       {f}
                     </span>
                   ))}
                 </div>
+                <p className="text-white/40 text-sm mb-2">
+                  *Some formats may require the original recording device — reach out and we can discuss it.
+                </p>
               </div>
               <div className="border-t border-white/8 py-4">
                 <Marquee items={formatMarquee} speed={20} />
