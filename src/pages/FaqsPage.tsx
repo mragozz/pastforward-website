@@ -6,25 +6,25 @@ import { FadeIn, PageHero } from "../components/ui";
 
 const faqs = [
   { q: "How long does the conversion process take?",
-    a: "Most orders are completed within 1–2 weeks. The average turnaround is just 3 days from the time I pick up your materials. Rush orders are available for a $25 add-on — just mention it when you submit your order." },
+    a: "Most orders are completed within 1–2 weeks. My average turnaround is just 3 days for shorter orders from the time I pick up your materials. Rush orders are available for a $25 add-on — just mention it when you submit your order." },
   { q: "What tape and disc formats do you accept?",
-    a: "I accept VHS, VHS-C, 8mm Camcorder, Hi8, Digital8, MiniDV, Betamax, and DVDs. If you have a format you're unsure about, just reach out — I'm happy to check before you commit." },
+    a: "I accept VHS, VHS-C, 8mm Camcorder, Hi8, Digital8, and DVDs. If you have a format you're unsure about, just reach out — I'm happy to check before you commit. However, I do require the originial recording devices for 8mm Camcorder, Hi8, Digital8, and MiniDV." },
   { q: "How does pickup and dropoff work?",
     a: "I personally pick up your tapes from anywhere in the Indianapolis area at a time that works for you. Once everything is digitized, I return all your original tapes and discs in person — nothing is kept or discarded without your permission." },
   { q: "How are my digital files delivered?",
-    a: "Your memories are delivered as high-quality MP4 files via a private Google Drive link, a USB drive, or an external hard drive — whichever you prefer. Just let me know when you place your order." },
+    a: "Your memories are delivered as high-quality MP4 files via a USB drive, or a DVD — whichever you prefer. Just let me know when you place your order." },
   { q: "Is my footage kept private and secure?",
     a: "Absolutely. Your videos are never shared, posted, or stored anywhere after the project is complete. I handle every tape as if it were my own family's memories." },
   { q: "What if my tape is damaged or hard to play?",
-    a: "I have equipment for handling worn or fragile tapes and will do my best to recover as much footage as possible. I'll always let you know upfront if a tape has issues before proceeding — no surprises." },
+    a: "I have equipment for handling worn or fragile tapes and will do my best to recover as much footage as possible. I'll always let you know upfront if a tape has issues before proceeding." },
   { q: "How do I pay?",
     a: "Payment is accepted via Venmo, PayPal, cash, or check — whichever is easiest for you. Payment is due upon delivery of your digital files." },
   { q: "Do you service areas outside Indianapolis?",
     a: "I serve the greater Indianapolis metro area, including surrounding suburbs like Carmel, Fishers, Westfield, Zionsville, Avon, and Greenwood. If you're not sure, just reach out and I'll do my best to accommodate." },
   { q: "What quality will my converted files be?",
     a: "Files are captured at the best quality available from the source tape, typically at 720×480 (standard definition) for VHS/Hi8, and exported as H.264 MP4 files that play on any device without special software." },
-  { q: "Can I get my files on a physical drive?",
-    a: "Yes! I can deliver your files on a USB flash drive or external hard drive. Just mention your preference in your order notes. There may be a small charge for the physical media depending on size." },
+  { q: "Do I get my files on a physical drive?",
+    a: "Yes! I can deliver your files on a USB flash drive or a DVD. Just mention your preference in your order notes. There may be a small charge for the physical media depending on size." },
 ];
 
 export default function FaqsPage() {
