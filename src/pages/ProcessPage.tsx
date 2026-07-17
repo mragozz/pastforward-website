@@ -8,7 +8,7 @@ const steps = [
   { n: "01", title: "Place an order",
     body: "Fill out the order form or send a message. Tell me your tape types and quantities — I'll get back to you quickly to schedule a pickup time that works for you.", color: "#C9A34E", text: "#123222" },
   { n: "02", title: "I Pick Up Your Tapes",
-    body: "I come to you — anywhere in the Indianapolis or Noblesville area. I carefully collect every original tape and disc, protected for transport.", color: "#2F6B4F", text: "#F4EBD3" },
+    body: "I come to you — anywhere in the Indianapolis, Carmel, Westfield, Zionsville and Noblesville areas. I carefully collect every original tape and disc, protected for transport.", color: "#2F6B4F", text: "#F4EBD3" },
   { n: "03", title: "I Digitize Everything",
     body: "Using professional capture equipment, I convert each tape to a high-quality MP4 file. Every conversion gets a quality check.", color: "#C9A34E", text: "#123222" },
   { n: "04", title: "Your Files Are Ready",
@@ -120,7 +120,7 @@ export default function ProcessPage() {
           <div className="grid md:grid-cols-3 gap-7">
             {[
               { title: "100% Personal", body: "No drop boxes, no shipping, no strangers. I personally handle every tape from pickup to return." },
-              { title: "Truly Local", body: "I serve only the Indianapolis area — which means faster turnaround, personal accountability, and a face behind the service." },
+              { title: "Truly Local", body: "I serve the Indianapolis, Carmel, Westfield, Zionsville and Noblesville areas — which means faster turnaround, personal accountability, and a face behind the service." },
               { title: "Free Pickup & Return", body: "I come to you — your home, your office, wherever works. No mailing necessary." },
             ].map((v, i) => (
               <FadeIn key={i} delay={i * 0.13}>
