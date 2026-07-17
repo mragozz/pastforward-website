@@ -25,10 +25,10 @@ export default function Footer() {
               video digitization — one tape at a time.
             </p>
             <a
-              href="mailto:orders@pastforwardindy.com"
+              href="mailto:indypastforward@gmail.com"
               className="inline-block mt-6 text-white/50 hover:text-white transition-colors text-sm"
             >
-              orders@pastforwardindy.com
+              indypastforward@gmail.com
             </a>
           </div>
 
