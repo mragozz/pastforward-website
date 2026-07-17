@@ -74,7 +74,7 @@ export default function AboutPage() {
                 className="aspect-[3/4] rounded-3xl overflow-hidden bg-muted relative shadow-2xl"
                 style={{ y: photoY }}
               >
-               <img src="public/IMG_1250.JPG" alt="Megan picture" />
+               <img src="/IMG_1250.JPG" alt="Megan picture" />
                 <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(7,31,22,0.5) 0%, transparent 60%)" }} />
               </motion.div>
               {/* Badge */}
