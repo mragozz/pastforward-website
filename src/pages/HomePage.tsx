@@ -15,12 +15,12 @@ const formatItems = ["VHS", "Hi8", "MiniDV", "Betamax", "Camcorder", "DVD", "Dig
 
 /* ── Testimonials ─────────────────────────────────────────────── */
 const testimonials = [
-  { name: "Linda M.", location: "Carmel, IN", rating: 5,
-    quote: "I cried the first time I watched the videos of my kids' first Christmases. I thought those memories were gone forever. Past Forward Indy brought them back instantly." },
-  { name: "Robert & Carol T.", location: "Fishers, IN", rating: 5,
-    quote: "We had over 30 tapes from family vacations going back to the '80s. Every single one was converted perfectly. The pickup and delivery was so convenient." },
-  { name: "James K.", location: "Zionsville, IN", rating: 5,
-    quote: "Fast, careful, and very affordable. Our VHS tapes from the '90s were degrading fast. Now those memories are crisp and backed up forever. Worth every penny." },
+  { name: "Amy D,", rating: 5,
+    quote: "Megan converted quite a few videotapes of our old home movies for us. One of them included a very meaningful discussion with my grandmother that was very important to us. She is trustworthy, did a great job and finished quickly." },
+  { name: "Judy S,", rating: 5,
+    quote: "" },
+  { name: "Greg V.", rating: 5,
+    quote: "Megan converted our two VHS tape wedding videos to digital format. The tapes were over 20 years old, and she handled them with great care of professionalism. Very pleased with the results, and now we can be assured that these memories will be around and easy for us to access and share with our family for many years to come!" },
 ];
 
 /* ── Preview cards ────────────────────────────────────────────── */
