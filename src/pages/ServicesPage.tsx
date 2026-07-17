@@ -117,7 +117,7 @@ export default function ServicesPage() {
           </FadeIn>
           <div className="grid md:grid-cols-3 gap-7">
             {[
-              { title: "USB Flash Drive", body: "Your files on a physical USB drive — ready to plug into any TV, laptop, or computer. Great for sharing with family." },
+              { title: "USB Flash Drive", body: "Your files on a physical USB drive — ready to plug into any TV, laptop, or computer. Great for sharing with family. A flash drive sized to fit your files is provided at an additional cost, based on your total file size." },
               { title: "DVD", body: "Replace old or corrupted DVDs, or choose to preserve your VHS memories on new ones." },
             ].map((opt, i) => (
               <FadeIn key={i} delay={i * 0.13}>
