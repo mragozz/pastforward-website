@@ -343,7 +343,7 @@ export default function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-white">
             {[
               { target: 260, suffix: "+", label: "Tapes Converted" },
-              { target: 3, suffix: " Days", label: "Average Turnaround" },
+              { target: 3, suffix: " Days", label: "Average Turnaround for 1-2 Tapes" },
               { target: 2, prefix: "≤", suffix: " Weeks", label: "Most Orders Done" },
               { target: 100, suffix: "%", label: "Originals Returned" },
             ].map((stat, i) => (
