@@ -1,15 +1,55 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { AnimatedVHS } from "../components/media";
 import { FadeIn } from "../components/ui";
 
 type Form = {
-  name: string; email: string; phone: string;
-  address: string; tapeTypes: string; quantity: string; notes: string;
+  name: string;
+  email: string;
+  phone: string;
+  zipcode: string;
+  tapeType: string;
+  hasOriginalDevice: string; // "yes" | "no" | ""
+  quantity: string;
+  contactMethod: string; // "text" | "email" | "other"
+  contactMethodOther: string;
+  notes: string;
 };
 
-const initialForm: Form = { name: "", email: "", phone: "", address: "", tapeTypes: "", quantity: "", notes: "" };
+const initialForm: Form = {
+  name: "",
+  email: "",
+  phone: "",
+  zipcode: "",
+  tapeType: "",
+  hasOriginalDevice: "",
+  quantity: "",
+  contactMethod: "",
+  contactMethodOther: "",
+  notes: "",
+};
+
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwWAafHUL8xiSdebl3WIceF3DBUCfpoxSvfXNTTBAgOGcYSLN-Zj8MpNX4wWFync1Iy/exec";
+
+const TAPE_TYPES = ["VHS", "VHS-C", "8mm Camcorder", "Hi8", "Digital8", "MiniDVD", "DVD"];
+const DEVICE_CHECK_TYPES = ["8mm Camcorder", "Hi8", "Digital8", "MiniDVD"];
+
+const ORIGIN_COORDS = { lat: 39.9067, lon: -86.1758 }; // 46260, Indianapolis, IN
+const MAX_RADIUS_MILES = 40;
+
+function milesBetween(lat1: number, lon1: number, lat2: number, lon2: number) {
+  const R = 3958.8; // earth radius in miles
+  const dLat = ((lat2 - lat1) * Math.PI) / 180;
+  const dLon = ((lon2 - lon1) * Math.PI) / 180;
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos((lat1 * Math.PI) / 180) *
+      Math.cos((lat2 * Math.PI) / 180) *
+      Math.sin(dLon / 2) ** 2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function Field({
   label, required, children,
@@ -30,26 +70,84 @@ const inputClass =
 export default function ContactPage() {
   const [form, setForm] = useState<Form>(initialForm);
   const [submitted, setSubmitted] = useState(false);
+  const [emailError, setEmailError] = useState("");
+  const [zipTooFar, setZipTooFar] = useState(false);
+  const [zipChecking, setZipChecking] = useState(false);
 
   function set(key: keyof Form) {
     return (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
       setForm((f) => ({ ...f, [key]: e.target.value }));
   }
 
-  async function handleSubmit(e: React.FormEvent) {
-  e.preventDefault();
-  try {
-    await fetch(SCRIPT_URL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify(form),
-    });
-    setSubmitted(true);
-  } catch (err) {
-    console.error(err);
+  function handleEmailChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const value = e.target.value;
+    setForm((f) => ({ ...f, email: value }));
+    if (emailError) setEmailError("");
   }
-}
+
+  function handleQuantityChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const digitsOnly = e.target.value.replace(/[^0-9]/g, "");
+    setForm((f) => ({ ...f, quantity: digitsOnly }));
+  }
+
+  function handleZipChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const digitsOnly = e.target.value.replace(/[^0-9]/g, "").slice(0, 5);
+    setForm((f) => ({ ...f, zipcode: digitsOnly }));
+    setZipTooFar(false);
+  }
+
+  // Look up distance once a full 5-digit zip is entered
+  useEffect(() => {
+    if (form.zipcode.length !== 5) return;
+    let cancelled = false;
+    setZipChecking(true);
+    fetch(`https://api.zippopotam.us/us/${form.zipcode}`)
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (cancelled || !data?.places?.[0]) return;
+        const lat = parseFloat(data.places[0].latitude);
+        const lon = parseFloat(data.places[0].longitude);
+        const dist = milesBetween(ORIGIN_COORDS.lat, ORIGIN_COORDS.lon, lat, lon);
+        setZipTooFar(dist > MAX_RADIUS_MILES);
+      })
+      .catch(() => {})
+      .finally(() => {
+        if (!cancelled) setZipChecking(false);
+      });
+    return () => { cancelled = true; };
+  }, [form.zipcode]);
+
+  function handleTapeTypeChange(e: React.ChangeEvent<HTMLSelectElement>) {
+    const value = e.target.value;
+    setForm((f) => ({
+      ...f,
+      tapeType: value,
+      hasOriginalDevice: DEVICE_CHECK_TYPES.includes(value) ? f.hasOriginalDevice : "",
+    }));
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+
+    if (!EMAIL_REGEX.test(form.email)) {
+      setEmailError("Please enter a valid email address.");
+      return;
+    }
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(form),
+      });
+      setSubmitted(true);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  const showDeviceCheck = DEVICE_CHECK_TYPES.includes(form.tapeType);
 
   return (
     <>
@@ -122,7 +220,7 @@ export default function ContactPage() {
             <FadeIn>
               <div className="bg-primary/6 border border-primary/20 rounded-3xl p-16 text-center">
                 <div className="text-7xl mb-6">🎉</div>
-                <h2 className="font-display text-4xl font-bold mb-4">Your has been received!</h2>
+                <h2 className="font-display text-4xl font-bold mb-4">Your order has been received!</h2>
                 <p className="text-xl text-foreground/60 mb-8 leading-relaxed">
                   If it didn't, email me directly at{" "}
                   <a href="mailto:indypastforward@gmail.com"
@@ -131,7 +229,7 @@ export default function ContactPage() {
                   </a>
                 </p>
                 <button
-                  onClick={() => { setForm(initialForm); setSubmitted(false); }}
+                  onClick={() => { setForm(initialForm); setSubmitted(false); setEmailError(""); setZipTooFar(false); }}
                   className="bg-primary text-primary-foreground font-bold px-10 py-4 rounded-2xl hover:bg-[#D9B564] transition-colors text-lg"
                 >
                   Submit Another Request
@@ -146,7 +244,22 @@ export default function ContactPage() {
                     <input required type="text" placeholder="Jane Smith" value={form.name} onChange={set("name")} className={inputClass} />
                   </Field>
                   <Field label="Email Address" required>
-                    <input required type="email" placeholder="example@email.com" value={form.email} onChange={set("email")} className={inputClass} />
+                    <input
+                      required
+                      type="email"
+                      placeholder="example@email.com"
+                      value={form.email}
+                      onChange={handleEmailChange}
+                      onBlur={() => {
+                        if (form.email && !EMAIL_REGEX.test(form.email)) {
+                          setEmailError("Please enter a valid email address.");
+                        }
+                      }}
+                      className={inputClass}
+                    />
+                    {emailError && (
+                      <p className="text-accent text-sm mt-2 font-medium">{emailError}</p>
+                    )}
                   </Field>
                 </div>
 
@@ -154,17 +267,116 @@ export default function ContactPage() {
                   <Field label="Phone Number">
                     <input type="tel" placeholder="(317) 555-0100" value={form.phone} onChange={set("phone")} className={inputClass} />
                   </Field>
-                  <Field label="Pickup Address" required>
-                    <input required type="text" placeholder="123 Main St, Indianapolis, IN" value={form.address} onChange={set("address")} className={inputClass} />
+                  <Field label="Zip Code" required>
+                    <input
+                      required
+                      type="text"
+                      inputMode="numeric"
+                      pattern="[0-9]*"
+                      maxLength={5}
+                      placeholder="46260"
+                      value={form.zipcode}
+                      onChange={handleZipChange}
+                      className={inputClass}
+                    />
+                    {zipChecking && (
+                      <p className="text-muted-foreground text-sm mt-2">Checking distance…</p>
+                    )}
+                    {!zipChecking && zipTooFar && (
+                      <p className="text-accent text-sm mt-2 font-medium">
+                        Heads up — this is more than {MAX_RADIUS_MILES} miles from Indianapolis (46260),
+                        so pickup may be difficult. I'll reach out to sort out the details.
+                      </p>
+                    )}
                   </Field>
                 </div>
 
-                <Field label="Tape / DVD Types" required>
-                  <input required type="text" placeholder="e.g. VHS, Hi8, MiniDV, DVD..." value={form.tapeTypes} onChange={set("tapeTypes")} className={inputClass} />
-                </Field>
+                <div className="grid sm:grid-cols-2 gap-6">
+                  <Field label="Tape / DVD Type" required>
+                    <select
+                      required
+                      value={form.tapeType}
+                      onChange={handleTapeTypeChange}
+                      className={inputClass}
+                    >
+                      <option value="" disabled>Select a type</option>
+                      {TAPE_TYPES.map((t) => (
+                        <option key={t} value={t}>{t}</option>
+                      ))}
+                    </select>
+                  </Field>
 
-                <Field label="How Many Tapes / Discs?" required>
-                  <input required type="text" placeholder="e.g. 8 VHS tapes, 3 DVDs" value={form.quantity} onChange={set("quantity")} className={inputClass} />
+                  <Field label="How Many?" required>
+                    <input
+                      required
+                      type="text"
+                      inputMode="numeric"
+                      pattern="[0-9]*"
+                      placeholder="e.g. 8"
+                      value={form.quantity}
+                      onChange={handleQuantityChange}
+                      className={inputClass}
+                    />
+                  </Field>
+                </div>
+
+                {showDeviceCheck && (
+                  <div className="sticky-note relative flex items-start gap-4 p-5">
+                    <span className="text-2xl shrink-0">📼</span>
+                    <div className="w-full">
+                      <div className="font-hand text-2xl font-bold text-[#2B1B0E] mb-2 leading-tight">
+                        Do you still have the original recording device?
+                      </div>
+                      <div className="text-[#2B1B0E]/75 text-base mb-3">
+                        For {form.tapeType}, having the original camcorder/player on hand can help if there are playback issues.
+                      </div>
+                      <div className="flex gap-6">
+                        <label className="flex items-center gap-2 text-[#2B1B0E] font-semibold cursor-pointer">
+                          <input
+                            type="radio"
+                            name="hasOriginalDevice"
+                            value="yes"
+                            checked={form.hasOriginalDevice === "yes"}
+                            onChange={set("hasOriginalDevice")}
+                          />
+                          Yes
+                        </label>
+                        <label className="flex items-center gap-2 text-[#2B1B0E] font-semibold cursor-pointer">
+                          <input
+                            type="radio"
+                            name="hasOriginalDevice"
+                            value="no"
+                            checked={form.hasOriginalDevice === "no"}
+                            onChange={set("hasOriginalDevice")}
+                          />
+                          No
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                <Field label="Preferred Method of Communication" required>
+                  <select
+                    required
+                    value={form.contactMethod}
+                    onChange={set("contactMethod")}
+                    className={inputClass}
+                  >
+                    <option value="" disabled>Select an option</option>
+                    <option value="text">Text</option>
+                    <option value="email">Email</option>
+                    <option value="other">Other</option>
+                  </select>
+                  {form.contactMethod === "other" && (
+                    <input
+                      type="text"
+                      placeholder="Please specify..."
+                      value={form.contactMethodOther}
+                      onChange={set("contactMethodOther")}
+                      className={`${inputClass} mt-3`}
+                    />
+                  )}
                 </Field>
 
                 <Field label="Additional Notes">
