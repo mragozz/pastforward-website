@@ -134,7 +134,6 @@ export default function AboutPage() {
                 </FadeIn>
                 <FadeIn delay={0.4}>
                   <p className="font-semibold text-foreground text-xl">
-                    I genuinely love working with families around Indianapolis to reconnect them with their past.
                     Every tape holds someone's laugh, someone's first steps, someone's voice they haven't heard in years — and getting to bring that back is the best part of my day.
                   </p>
                 </FadeIn>
