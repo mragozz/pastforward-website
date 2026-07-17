@@ -12,7 +12,7 @@ const steps = [
   { n: "03", title: "I Digitize Everything",
     body: "Using professional capture equipment, I convert each tape to a high-quality MP4 file. Every conversion gets a quality check.", color: "#C9A34E", text: "#123222" },
   { n: "04", title: "Your Files Are Ready",
-    body: "You'll receive a USB flash drive containing all of your files — organized, labeled, and ready to watch on any device.", color: "#2F6B4F", text: "#F4EBD3" },
+    body: "You'll receive a USB flash drive or DVD containing all of your files — organized, labeled, and ready to watch on any device.", color: "#2F6B4F", text: "#F4EBD3" },
   { n: "05", title: "I Return Your Originals",
     body: "I personally return every original tape and disc. Nothing is kept, discarded, or damaged. You'll have both your originals and your new digital copies.", color: "#C9A34E", text: "#123222" },
 ];
