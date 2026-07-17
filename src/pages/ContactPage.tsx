@@ -47,7 +47,7 @@ Tape/DVD Types: ${form.tapeTypes}
 Quantity: ${form.quantity}
 Additional Notes: ${form.notes}`
     );
-    window.open(`mailto:orders@pastforwardindy.com?subject=${subject}&body=${body}`);
+    window.open(`mailto:indypastforward@gmail.com?subject=${subject}&body=${body}`);
     setSubmitted(true);
   }
 
@@ -125,7 +125,7 @@ Additional Notes: ${form.notes}`
                 <h2 className="font-display text-4xl font-bold mb-4">Your email client opened!</h2>
                 <p className="text-xl text-foreground/60 mb-8 leading-relaxed">
                   If it didn't, email me directly at{" "}
-                  <a href="mailto:orders@pastforwardindy.com"
+                  <a href="mailto:indypastforward@gmail.com"
                     className="text-primary font-bold underline underline-offset-2 hover:text-accent transition-colors">
                     orders@pastforwardindy.com
                   </a>
@@ -146,7 +146,7 @@ Additional Notes: ${form.notes}`
                     <input required type="text" placeholder="Jane Smith" value={form.name} onChange={set("name")} className={inputClass} />
                   </Field>
                   <Field label="Email Address" required>
-                    <input required type="email" placeholder="jane@email.com" value={form.email} onChange={set("email")} className={inputClass} />
+                    <input required type="email" placeholder="example@email.com" value={form.email} onChange={set("email")} className={inputClass} />
                   </Field>
                 </div>
 
@@ -199,9 +199,9 @@ Additional Notes: ${form.notes}`
                   </motion.button>
                   <p className="text-center text-muted-foreground mt-5 text-lg">
                     Or email directly:{" "}
-                    <a href="mailto:orders@pastforwardindy.com"
+                    <a href="mailto:indypastforward@gmail.com"
                       className="text-primary font-semibold hover:underline underline-offset-2">
-                      orders@pastforwardindy.com
+                      indypastforward@gmail.com
                     </a>
                   </p>
                 </div>
@@ -216,9 +216,9 @@ Additional Notes: ${form.notes}`
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid sm:grid-cols-3 gap-6">
             {[
-              { emoji: "🔒", title: "100% Private", body: "Your videos are never shared or stored after delivery." },
-              { emoji: "📞", title: "Fast Response", body: "I respond to every inquiry within 24 hours, usually much sooner." },
-              { emoji: "🤝", title: "Personal Service", body: "A real person — not a company — handles your memories from start to finish." },
+              { title: "100% Private", body: "Your videos are never shared or stored after delivery." },
+              { title: "Fast Response", body: "I respond to every inquiry within 24 hours, usually much sooner." },
+              { title: "Personal Service", body: "A real person handles your memories from start to finish." },
             ].map((t, i) => (
               <FadeIn key={i} delay={i * 0.12}>
                 <div className="bg-card rounded-2xl p-7 border border-border text-center">
