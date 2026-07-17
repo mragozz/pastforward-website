@@ -382,7 +382,7 @@ export default function ContactPage() {
                 <Field label="Additional Notes">
                   <textarea
                     rows={4}
-                    placeholder="Rush order? Special requests? Questions about your tapes? Anything else I should know..."
+                    placeholder="Special requests? Questions about your tapes? Anything else I should know..."
                     value={form.notes}
                     onChange={set("notes")}
                     className={`${inputClass} resize-none`}
@@ -393,9 +393,9 @@ export default function ContactPage() {
                 <div className="sticky-note relative flex items-start gap-4 p-5">
                   <span className="text-2xl shrink-0">⚡</span>
                   <div>
-                    <div className="font-hand text-2xl font-bold text-[#2B1B0E] mb-1 leading-tight">Need it faster? Rush + Editing available.</div>
+                    <div className="font-hand text-2xl font-bold text-[#2B1B0E] mb-1 leading-tight">Need some editing done?</div>
                     <div className="text-[#2B1B0E]/75 text-base">
-                      Add $25 to your order for priority turnaround and optional basic video editing. Just mention it in your notes above.
+                      Combining multiple tapes into one video, or splitting one into separate clips — $20/hr. Just mention what you'd like in your notes above.
                     </div>
                   </div>
                 </div>
