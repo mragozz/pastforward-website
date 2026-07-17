@@ -465,12 +465,12 @@ export default function HomePage() {
         <div className="py-2 overflow-hidden">
           <Marquee
             items={[
-              "🎞 Preserve Before They Fade",
-              "📼 VHS · Hi8 · MiniDV · DVD",
-              "🎬 Indianapolis, Indiana",
-              "📽 Personal Pickup & Delivery",
-              "⏱ 3-Day Average Turnaround",
-              "🔒 100% Private & Secure",
+              "Preserve Before They Fade",
+              "VHS · Hi8 · MiniDV · DVD",
+              "Indianapolis, Indiana",
+              "Personal Pickup & Delivery",
+              "3-Day Average Turnaround",
+              "100% Private & Secure",
             ].map((s, i) => (
               <span key={i} className="text-white/50 font-semibold tracking-wider text-sm uppercase px-8">{s}</span>
             ))}
@@ -503,8 +503,7 @@ export default function HomePage() {
           </RevealLine>
           <FadeIn delay={0.2}>
             <p className="text-xl md:text-2xl text-foreground/60 mb-7 leading-relaxed max-w-2xl mx-auto">
-              Every year you wait, your tapes degrade a little more. Let's
-              preserve your family's memories — together.
+              Every year you wait, your tapes degrade a little more.
             </p>
           </FadeIn>
           <FadeIn delay={0.28}>
