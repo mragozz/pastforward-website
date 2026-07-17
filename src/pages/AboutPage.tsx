@@ -53,7 +53,7 @@ export default function AboutPage() {
             </div>
             <FadeIn delay={0.4}>
               <p className="text-xl text-foreground/62 leading-relaxed mb-8 max-w-lg">
-                A Computer Science and Artificial Intelligence student at Purdue University 
+                Hi, I'm Megan! A Computer Science and Artificial Intelligence student at Purdue University 
                 who believes in combining technology from the past with technology in the future.
               </p>
             </FadeIn>
