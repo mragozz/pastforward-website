@@ -29,7 +29,7 @@ const previews = [
     to: "/about",
     tag: "About Me",
     title: "The person behind\nevery tape.",
-    body: "A Purdue CS student who started this because a box of old family tapes changed everything. Personal service — always.",
+    body: "A Purdue CS student who started this because a box of old family tapes changed everything.",
     visual: <AnimatedMiniDV width={110} />,
     accent: "#E3C878",
   },
@@ -50,7 +50,7 @@ const previews = [
     to: "/process",
     tag: "How It Works",
     title: "Pickup, digitize,\ndeliver.",
-    body: "I personally pick up your tapes anywhere in Indy, convert them with care, and return every original. Five easy steps.",
+    body: "I personally pick up your tapes anywhere in Indy, convert them with care, and return every original.",
     visual: (
       <div className="flex items-center gap-2">
         {["01", "02", "03", "04", "05"].map((s, i) => (
