@@ -99,7 +99,7 @@ export default function AboutPage() {
             <div>
               <FadeIn>
                 <h2 className="font-display text-4xl font-bold mb-8 leading-tight">
-                  How this all started.
+                  How this all started:
                 </h2>
               </FadeIn>
               <div className="space-y-6 text-lg text-foreground/65 leading-relaxed">
