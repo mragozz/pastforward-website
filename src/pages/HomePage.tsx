@@ -15,10 +15,10 @@ const formatItems = ["VHS", "Hi8", "MiniDV", "Camcorder", "Digital8", "DVD", "VH
 
 /* ── Testimonials ─────────────────────────────────────────────── */
 const testimonials = [
-  { name: "Amy D,", rating: 5,
+  { name: "Amy D.", rating: 5,
     quote: "Megan converted quite a few videotapes of our old home movies for us. One of them included a very meaningful discussion with my grandmother that was very important to us. She is trustworthy, did a great job and finished quickly." },
-  { name: "Judy S,", rating: 5,
-    quote: "" },
+  { name: "Judy S.", rating: 5,
+    quote: "Best thing I ever did! I had Megan convert all of my family videos, VHS and DVDs, and am so thrilled with the result! She took care of everything and even organized them for me. We went from having no way to access and watch these precious memories to laughing and reminiscing about them at holiday gatherings. Now my videos are at the click of a button with everything digital! Megan has given us the greatest gift! She is super easy to work with and great at what she does! I would HIGHLY recommend!" },
   { name: "Greg V.", rating: 5,
     quote: "Megan converted our two VHS tape wedding videos to digital format. The tapes were over 20 years old, and she handled them with great care of professionalism. Very pleased with the results, and now we can be assured that these memories will be around and easy for us to access and share with our family for many years to come!" },
 ];
