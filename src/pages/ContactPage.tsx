@@ -35,7 +35,7 @@ const TAPE_TYPES = ["VHS", "VHS-C", "8mm Camcorder", "Hi8", "Digital8", "MiniDVD
 const DEVICE_CHECK_TYPES = ["8mm Camcorder", "Hi8", "Digital8", "MiniDVD"];
 
 const ORIGIN_COORDS = { lat: 39.9067, lon: -86.1758 }; // 46260, Indianapolis, IN
-const MAX_RADIUS_MILES = 40;
+const MAX_RADIUS_MILES = 45;
 
 function milesBetween(lat1: number, lon1: number, lat2: number, lon2: number) {
   const R = 3958.8; // earth radius in miles
@@ -274,7 +274,7 @@ export default function ContactPage() {
                       inputMode="numeric"
                       pattern="[0-9]*"
                       maxLength={5}
-                      placeholder="46204"
+                      placeholder="46240"
                       value={form.zipcode}
                       onChange={handleZipChange}
                       className={inputClass}
@@ -410,7 +410,7 @@ export default function ContactPage() {
                     Send My Order Request →
                   </motion.button>
                   <p className="text-center text-muted-foreground mt-5 text-lg">
-                    Or email directly:{" "}
+                    Not ready to start your order yet? Feel free to reach out with any questions at{" "}
                     <a href="mailto:indypastforward@gmail.com"
                       className="text-primary font-semibold hover:underline underline-offset-2">
                       indypastforward@gmail.com
