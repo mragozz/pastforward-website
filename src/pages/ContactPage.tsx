@@ -9,6 +9,7 @@ type Form = {
 };
 
 const initialForm: Form = { name: "", email: "", phone: "", address: "", tapeTypes: "", quantity: "", notes: "" };
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwwk4SpBj19Yr1q7OWZLrz1MCACpXrWll5ST50X2yNMzOZbYq4lEhhSIjvlS487q8mK/exec";
 
 function Field({
   label, required, children,
@@ -35,21 +36,20 @@ export default function ContactPage() {
       setForm((f) => ({ ...f, [key]: e.target.value }));
   }
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    const subject = encodeURIComponent("Past Forward Indy — Order Request");
-    const body = encodeURIComponent(
-      `Name: ${form.name}
-Email: ${form.email}
-Phone: ${form.phone}
-Pickup Address: ${form.address}
-Tape/DVD Types: ${form.tapeTypes}
-Quantity: ${form.quantity}
-Additional Notes: ${form.notes}`
-    );
-    window.open(`mailto:indypastforward@gmail.com?subject=${subject}&body=${body}`);
+  async function handleSubmit(e: React.FormEvent) {
+  e.preventDefault();
+  try {
+    await fetch(SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(form),
+    });
     setSubmitted(true);
+  } catch (err) {
+    console.error(err);
   }
+}
 
   return (
     <>
