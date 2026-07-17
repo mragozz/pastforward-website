@@ -344,7 +344,7 @@ export default function HomePage() {
             {[
               { target: 260, suffix: "+", label: "Tapes Converted" },
               { target: 3, suffix: " Days", label: "Average Turnaround for 1-2 Tapes" },
-              { target: 2, prefix: "≤", suffix: " Weeks", label: "Most Orders Done" },
+              { target: 2, prefix: "≤", suffix: " Weeks", label: "Larger Orders Done" },
               { target: 100, suffix: "%", label: "Originals Returned" },
             ].map((stat, i) => (
               <FadeIn key={i} delay={i * 0.1}>
