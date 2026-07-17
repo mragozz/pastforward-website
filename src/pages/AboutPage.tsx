@@ -8,6 +8,7 @@ export default function AboutPage() {
   const photoRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: photoRef, offset: ["start end", "end start"] });
   const photoY = useTransform(scrollYProgress, [0, 1], [-30, 30]);
+
   return (
     <>
       {/* Hero */}
@@ -98,7 +99,7 @@ export default function AboutPage() {
             <div>
               <FadeIn>
                 <h2 className="font-display text-4xl font-bold mb-8 leading-tight">
-                  How this all started:
+                  How this all started.
                 </h2>
               </FadeIn>
               <div className="space-y-6 text-lg text-foreground/65 leading-relaxed">
@@ -144,6 +145,7 @@ export default function AboutPage() {
                 </Link>
               </FadeIn>
             </div>
+
             {/* Values */}
             <div className="space-y-5 pt-2">
               {[
@@ -168,3 +170,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+    </>
+  );
+}
