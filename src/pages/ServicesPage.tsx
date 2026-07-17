@@ -109,7 +109,7 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn>
             <h2 className="font-display text-4xl font-bold text-foreground text-center mb-12">
-              Delivery Options
+              Delivery Format Options
             </h2>
           </FadeIn>
           <div className="grid md:grid-cols-3 gap-7">
