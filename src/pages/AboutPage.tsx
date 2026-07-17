@@ -118,6 +118,7 @@ export default function AboutPage() {
                     equipment, the cables, the software. When my family got together again, 
                     we were all able to watch the videos together. I loved being able to share in that joy
                     and reliving their childhood with them.
+                
                   </p>
                 </FadeIn>
                 <FadeIn delay={0.3}>
@@ -125,7 +126,7 @@ export default function AboutPage() {
                     I realized other families had the same boxes sitting in their
                     basements, collecting dust, wishing they could see their old videos.
                     To make some money for college, I decided to start Past Forward to help families
-                    around Indianapolis.
+                    around Indianapolis, Carmel, Westfield, Zionsville and Noblesville areas.
                   </p>
                 </FadeIn>
                 <FadeIn delay={0.4}>
