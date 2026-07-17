@@ -114,9 +114,8 @@ export default function ServicesPage() {
           </FadeIn>
           <div className="grid md:grid-cols-3 gap-7">
             {[
-              { emoji: "☁️", title: "Google Drive Link", body: "A private, secure link delivered to your email. Stream or download your files from any device, anywhere." },
-              { emoji: "💾", title: "USB Flash Drive", body: "Your files on a physical USB drive — ready to plug into any TV, laptop, or computer. Great for sharing with family." },
-              { emoji: "🗄️", title: "External Hard Drive", body: "Best for large orders or long-term archival. Delivered with a drive pre-loaded with all your converted files." },
+              { title: "USB Flash Drive", body: "Your files on a physical USB drive — ready to plug into any TV, laptop, or computer. Great for sharing with family." },
+              { title: "DVD", body: "Replace old or corrupted DVDs, or choose to preserve your VHS memories on new ones." },
             ].map((opt, i) => (
               <FadeIn key={i} delay={i * 0.13}>
                 <TiltCard className="bg-card rounded-2xl p-8 border border-border h-full text-center">
