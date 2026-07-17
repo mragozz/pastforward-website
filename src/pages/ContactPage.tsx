@@ -122,12 +122,12 @@ export default function ContactPage() {
             <FadeIn>
               <div className="bg-primary/6 border border-primary/20 rounded-3xl p-16 text-center">
                 <div className="text-7xl mb-6">🎉</div>
-                <h2 className="font-display text-4xl font-bold mb-4">Your email client opened!</h2>
+                <h2 className="font-display text-4xl font-bold mb-4">Your has been received!</h2>
                 <p className="text-xl text-foreground/60 mb-8 leading-relaxed">
                   If it didn't, email me directly at{" "}
                   <a href="mailto:indypastforward@gmail.com"
                     className="text-primary font-bold underline underline-offset-2 hover:text-accent transition-colors">
-                    orders@pastforwardindy.com
+                    indypastforward@gmail.com
                   </a>
                 </p>
                 <button
