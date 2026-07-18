@@ -190,7 +190,7 @@ export default function ContactPage() {
                 <div className="text-7xl mb-6">🎉</div>
                 <h2 className="font-display text-4xl font-bold mb-4">Your order has been received!</h2>
                 <p className="text-xl text-foreground/60 mb-8 leading-relaxed">
-                  If it didn't, email me directly at{" "}
+                  If you didn't get an email confirmation, email me directly at{" "}
                   <a href="mailto:indypastforward@gmail.com"
                     className="text-primary font-bold underline underline-offset-2 hover:text-accent transition-colors">
                     indypastforward@gmail.com
