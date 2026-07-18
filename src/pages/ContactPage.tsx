@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "motion/react";
 import { AnimatedVHS } from "../components/media";
 import { FadeIn } from "../components/ui";
@@ -7,7 +7,8 @@ type Form = {
   name: string;
   email: string;
   phone: string;
-  zipcode: string;
+  city: string;
+  cityOther: string;
   tapeType: string;
   hasOriginalDevice: string; // "yes" | "no" | ""
   quantity: string;
@@ -20,7 +21,8 @@ const initialForm: Form = {
   name: "",
   email: "",
   phone: "",
-  zipcode: "",
+  city: "",
+  cityOther: "",
   tapeType: "",
   hasOriginalDevice: "",
   quantity: "",
@@ -33,21 +35,7 @@ const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwWAafHUL8xiSdebl3WI
 
 const TAPE_TYPES = ["VHS", "VHS-C", "8mm Camcorder", "Hi8", "Digital8", "MiniDVD", "DVD", "Mix of Multiple Formats"];
 const DEVICE_CHECK_TYPES = ["8mm Camcorder", "Hi8", "Digital8", "MiniDVD"];
-
-const ORIGIN_COORDS = { lat: 39.9067, lon: -86.1758 }; // 46260, Indianapolis, IN
-const MAX_RADIUS_MILES = 45;
-
-function milesBetween(lat1: number, lon1: number, lat2: number, lon2: number) {
-  const R = 3958.8; // earth radius in miles
-  const dLat = ((lat2 - lat1) * Math.PI) / 180;
-  const dLon = ((lon2 - lon1) * Math.PI) / 180;
-  const a =
-    Math.sin(dLat / 2) ** 2 +
-    Math.cos((lat1 * Math.PI) / 180) *
-      Math.cos((lat2 * Math.PI) / 180) *
-      Math.sin(dLon / 2) ** 2;
-  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-}
+const CITIES = ["Indianapolis", "Carmel", "Westfield", "Zionsville", "Noblesville", "Other"];
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -71,8 +59,6 @@ export default function ContactPage() {
   const [form, setForm] = useState<Form>(initialForm);
   const [submitted, setSubmitted] = useState(false);
   const [emailError, setEmailError] = useState("");
-  const [zipTooFar, setZipTooFar] = useState(false);
-  const [zipChecking, setZipChecking] = useState(false);
 
   function set(key: keyof Form) {
     return (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
@@ -90,39 +76,21 @@ export default function ContactPage() {
     setForm((f) => ({ ...f, quantity: digitsOnly }));
   }
 
-  function handleZipChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const digitsOnly = e.target.value.replace(/[^0-9]/g, "").slice(0, 5);
-    setForm((f) => ({ ...f, zipcode: digitsOnly }));
-    setZipTooFar(false);
-  }
-
-  // Look up distance once a full 5-digit zip is entered
-  useEffect(() => {
-    if (form.zipcode.length !== 5) return;
-    let cancelled = false;
-    setZipChecking(true);
-    fetch(`https://api.zippopotam.us/us/${form.zipcode}`)
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data) => {
-        if (cancelled || !data?.places?.[0]) return;
-        const lat = parseFloat(data.places[0].latitude);
-        const lon = parseFloat(data.places[0].longitude);
-        const dist = milesBetween(ORIGIN_COORDS.lat, ORIGIN_COORDS.lon, lat, lon);
-        setZipTooFar(dist > MAX_RADIUS_MILES);
-      })
-      .catch(() => {})
-      .finally(() => {
-        if (!cancelled) setZipChecking(false);
-      });
-    return () => { cancelled = true; };
-  }, [form.zipcode]);
-
   function handleTapeTypeChange(e: React.ChangeEvent<HTMLSelectElement>) {
     const value = e.target.value;
     setForm((f) => ({
       ...f,
       tapeType: value,
       hasOriginalDevice: DEVICE_CHECK_TYPES.includes(value) ? f.hasOriginalDevice : "",
+    }));
+  }
+
+  function handleCityChange(e: React.ChangeEvent<HTMLSelectElement>) {
+    const value = e.target.value;
+    setForm((f) => ({
+      ...f,
+      city: value,
+      cityOther: value === "Other" ? f.cityOther : "",
     }));
   }
 
@@ -139,7 +107,7 @@ export default function ContactPage() {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify({ ...form, zipTooFar }),
+        body: JSON.stringify(form),
       });
       setSubmitted(true);
     } catch (err) {
@@ -229,7 +197,7 @@ export default function ContactPage() {
                   </a>
                 </p>
                 <button
-                  onClick={() => { setForm(initialForm); setSubmitted(false); setEmailError(""); setZipTooFar(false); }}
+                  onClick={() => { setForm(initialForm); setSubmitted(false); setEmailError(""); }}
                   className="bg-primary text-primary-foreground font-bold px-10 py-4 rounded-2xl hover:bg-[#D9B564] transition-colors text-lg"
                 >
                   Submit Another Request
@@ -267,26 +235,27 @@ export default function ContactPage() {
                   <Field label="Phone Number">
                     <input type="tel" placeholder="(317) 000-0000" value={form.phone} onChange={set("phone")} className={inputClass} />
                   </Field>
-                  <Field label="Zip Code" required>
-                    <input
+                  <Field label="City" required>
+                    <select
                       required
-                      type="text"
-                      inputMode="numeric"
-                      pattern="[0-9]*"
-                      maxLength={5}
-                      placeholder="46240"
-                      value={form.zipcode}
-                      onChange={handleZipChange}
+                      value={form.city}
+                      onChange={handleCityChange}
                       className={inputClass}
-                    />
-                    {zipChecking && (
-                      <p className="text-muted-foreground text-sm mt-2">Checking distance…</p>
-                    )}
-                    {!zipChecking && zipTooFar && (
-                      <p className="text-accent text-sm mt-2 font-medium">
-                        Heads up — this is more than {MAX_RADIUS_MILES} miles from Indianapolis (46260),
-                        so pickup may be difficult. I'll reach out to sort out the details.
-                      </p>
+                    >
+                      <option value="" disabled>Select your city</option>
+                      {CITIES.map((c) => (
+                        <option key={c} value={c}>{c}</option>
+                      ))}
+                    </select>
+                    {form.city === "Other" && (
+                      <input
+                        required
+                        type="text"
+                        placeholder="Please specify your city"
+                        value={form.cityOther}
+                        onChange={set("cityOther")}
+                        className={`${inputClass} mt-3`}
+                      />
                     )}
                   </Field>
                 </div>
