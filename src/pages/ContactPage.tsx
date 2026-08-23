@@ -382,8 +382,6 @@ export default function ContactPage() {
                   />
                 )}
           </Field>
-
-<Field label="Additional Notes">
                 <Field label="Additional Notes">
                   <textarea
                     rows={4}
