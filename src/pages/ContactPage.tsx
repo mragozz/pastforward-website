@@ -14,6 +14,8 @@ type Form = {
   quantity: string;
   contactMethod: string; // "text" | "email" | "other"
   contactMethodOther: string;
+  referral: string;       
+  referralOther: string;
   notes: string;
 };
 
@@ -28,6 +30,8 @@ const initialForm: Form = {
   quantity: "",
   contactMethod: "",
   contactMethodOther: "",
+  referral: "",        
+  referralOther: "",
   notes: "",
 };
 
@@ -36,6 +40,8 @@ const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwWAafHUL8xiSdebl3WI
 const TAPE_TYPES = ["VHS", "VHS-C", "8mm Camcorder", "Hi8", "Digital8", "MiniDVD", "DVD", "Mix of Multiple Formats"];
 const DEVICE_CHECK_TYPES = ["8mm Camcorder", "Hi8", "Digital8", "MiniDVD"];
 const CITIES = ["Indianapolis", "Carmel", "Westfield", "Zionsville", "Noblesville", "Other"];
+const REFERRAL_SOURCES = ["Facebook", "Friend or Family", "Google Search", "Advertisement", "Nextdoor", "Other"];
+
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -93,6 +99,14 @@ export default function ContactPage() {
       cityOther: value === "Other" ? f.cityOther : "",
     }));
   }
+  function handleReferralChange(e: React.ChangeEvent<HTMLSelectElement>) {
+  const value = e.target.value;
+  setForm((f) => ({
+    ...f,
+    referral: value,
+    referralOther: value === "Other" ? f.referralOther : "",
+  }));
+}
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -347,7 +361,29 @@ export default function ContactPage() {
                     />
                   )}
                 </Field>
+            <Field label="How Did You Hear About Us?">
+              <select
+                value={form.referral}
+                onChange={handleReferralChange}
+                className={inputClass}
+              >
+              <option value="" disabled>Select an option (optional)</option>
+              {REFERRAL_SOURCES.map((r) => (
+              <option key={r} value={r}>{r}</option>
+              ))}
+              </select>
+                {form.referral === "Other" && (
+                  <input
+                    type="text"
+                    placeholder="Please specify..."
+                    value={form.referralOther}
+                    onChange={set("referralOther")}
+                    className={`${inputClass} mt-3`}
+                  />
+                )}
+          </Field>
 
+<Field label="Additional Notes">
                 <Field label="Additional Notes">
                   <textarea
                     rows={4}
