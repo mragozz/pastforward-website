@@ -23,6 +23,8 @@ const testimonials = [
     quote: "Megan converted our two VHS tape wedding videos to digital format. The tapes were over 20 years old, and she handled them with great care of professionalism. Very pleased with the results, and now we can be assured that these memories will be around and easy for us to access and share with our family for many years to come!" },
   { name: "Heather G.", rating: 5,
     quote: "Megan did a great job digitizing several videos for me. She was communicative and was done so fast! I’d recommend her without reservation." },
+  { name: "Tisa S.", rating: 5,
+    quote: "She has worked several times helping me convert all of mine and has done an excellent job! You may want to consider having this done before yours go bad!" },
 ];
 
 /* ── Preview cards ────────────────────────────────────────────── */
